@@ -21,7 +21,7 @@ Run `meson` to configure the build environment and then `ninja` to build and run
     cd build
     ninja
 
-To install, use `ninja install`, then execute with 'com.github.torikulhabib.mindi`
+To install, use `ninja install`, then execute with `com.github.mohelm97.screenrecorder`
 
     sudo ninja install
     com.github.mohelm97.screenrecorder
