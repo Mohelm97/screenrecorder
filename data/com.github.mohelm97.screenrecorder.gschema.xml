@@ -1,0 +1,35 @@
+<?xml verscomn="1.0" encoding="UTF-8"?>
+<schemalist>
+    <enum id="com.github.mohelm97.screenrecorder.capture-mode">
+        <value nick="screen" value="0"/>
+        <value nick="area" value="1"/>
+    </enum>
+    <schema id="com.github.mohelm97.screenrecorder" path="/com/github/mohelm97/screenrecorder/" gettext-domain="com.github.mohelm97.screenrecorder">
+        <key name="dark-theme" type="b">
+            <default>false</default>
+        </key>
+        <key name="format" type="s">
+            <default>"mp4"</default>
+        </key>
+        <key name="mouse-pointer" type="b">
+            <default>true</default>
+        </key>
+        <key name="show-borders" type="b">
+            <default>false</default>
+        </key>
+        <key name="delay" type="i">
+            <range min="0" max="15"/>
+            <default>1</default>
+        </key>
+        <key name="framerate" type="i">
+            <range min="1" max="120"/>
+            <default>30</default>
+        </key>
+        <key name="folder-dir" type="s">
+            <default>""</default>
+        </key>
+        <key name='last-capture-mode' enum='com.github.mohelm97.screenrecorder.capture-mode'>
+            <default>"screen"</default>
+        </key>
+    </schema>
+</schemalist>
