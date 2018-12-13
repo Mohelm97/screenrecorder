@@ -19,6 +19,8 @@ message ('Listing dependencies')
 dependencies = [
     dependency('granite'),
     dependency('gtk+-3.0'),
+    dependency('x11'),
+    dependency('gdk-x11-3.0')
 ]
 
 # Create a new executable, list the files we want to compile, list the dependencies we need, and install
@@ -27,8 +29,9 @@ executable(
     icon_res,
     'src/Application.vala',
     'src/MainWindow.vala',
-    'src/Widgets/SelectionArea.vala',
     'src/FFmpegWrapper.vala',
+    'src/Widgets/SelectionArea.vala',
+    'src/Utils/KeybindingManager.vala',
     dependencies: dependencies,
     install: true
 )

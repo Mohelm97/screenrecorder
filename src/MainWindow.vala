@@ -36,12 +36,12 @@ namespace ScreenRecorder {
         private Gtk.ComboBoxText format_cmb;
         private Gtk.Entry name_entry;
 
+        private bool recording = false;
         private int delay;
         private int framerate;
         private string folder_dir = Environment.get_user_special_dir (UserDirectory.VIDEOS)
         +  "%c".printf(GLib.Path.DIR_SEPARATOR) + ScreenRecorderApp.SAVE_FOLDER;
 
-        public bool dark_theme { get; set; }
         public MainWindow (Gtk.Application app){
             Object (
                 application: app,
@@ -157,6 +157,9 @@ namespace ScreenRecorder {
             stop_btn.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
             stop_btn.hexpand = true;
 
+            record_btn.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl><Shift>R"}, "Toggle recording");
+            stop_btn.tooltip_markup = record_btn.tooltip_markup;
+
             this.set_default (record_btn);
 
             actions = new Gtk.ButtonBox (Gtk.Orientation.HORIZONTAL);
@@ -270,6 +273,14 @@ namespace ScreenRecorder {
                 }
             });
             stop_btn.clicked.connect (stop_recording);
+            KeybindingManager manager = new KeybindingManager();
+            manager.bind("<Control><Shift>R", () => {
+                if (recording) {
+                    stop_recording ();
+                } else {
+                    record_btn.clicked ();
+                }
+            });
         }
         
         void capture_screen () {
@@ -317,6 +328,7 @@ namespace ScreenRecorder {
                 borders_switch.get_state ()
             );
             grid.set_sensitive (false);
+            recording = true;
             actions.remove (record_btn);
             actions.add (stop_btn);
             stop_btn.show ();
@@ -324,6 +336,7 @@ namespace ScreenRecorder {
         
         void stop_recording () {
             grid.set_sensitive (true);
+            recording = false;
             ffmpegwrapper.stop();
             actions.remove (stop_btn);
             actions.add (record_btn);
