@@ -191,24 +191,21 @@ namespace ScreenRecorder {
             grid.attach (location_label , 0, 8, 1, 1);
             grid.attach (location       , 1, 8, 1, 1);
 
-
-            var icon_light = new Gtk.Image.from_icon_name ("display-brightness-symbolic", Gtk.IconSize.BUTTON);
-            var icon_dark = new Gtk.Image.from_icon_name ("weather-clear-night-symbolic", Gtk.IconSize.BUTTON);
-            var light_dark_button = new Gtk.Button ();
-            light_dark_button.tooltip_text = _("Backgrond");
+            var mode_switch = new Granite.ModeSwitch.from_icon_name ("display-brightness-symbolic", "weather-clear-night-symbolic");
+            mode_switch.primary_icon_tooltip_text = ("Light background");
+            mode_switch.secondary_icon_tooltip_text = ("Dark background");
 
             var titlebar = new Gtk.HeaderBar ();
             titlebar.title = _("Screen Recorder");
             titlebar.show_close_button = true;
             titlebar.has_subtitle = false;
-            titlebar.pack_end (light_dark_button);
+            titlebar.pack_end (mode_switch);
             
             var titlebar_style_context = titlebar.get_style_context ();
             titlebar_style_context.add_class (Gtk.STYLE_CLASS_FLAT);
-            titlebar_style_context.add_class ("default-decoration");
+            //titlebar_style_context.add_class ("default-decoration");
 
             set_titlebar (titlebar);
-            light_dark_button.show_all ();
 
             var vbox = new Gtk.Box (Gtk.Orientation.VERTICAL, 0);
             vbox.add (grid);
@@ -216,11 +213,14 @@ namespace ScreenRecorder {
 
             add (vbox);
 
+            var gtk_settings = Gtk.Settings.get_default ();
+            mode_switch.bind_property ("active", gtk_settings, "gtk_application_prefer_dark_theme");
+
+            settings.bind ("dark-theme", mode_switch, "active", GLib.SettingsBindFlags.DEFAULT);
             settings.bind ("mouse-pointer", pointer_switch, "active", GLib.SettingsBindFlags.DEFAULT);
             settings.bind ("show-borders", borders_switch, "active", GLib.SettingsBindFlags.DEFAULT);
             settings.bind ("delay", delay_spin, "value", GLib.SettingsBindFlags.DEFAULT);
             settings.bind ("framerate", framerate_spin, "value", GLib.SettingsBindFlags.DEFAULT);
-            settings.bind ("dark-theme", this, "dark-theme", GLib.SettingsBindFlags.DEFAULT);
             delay = delay_spin.get_value_as_int () * 1000;
             framerate = framerate_spin.get_value_as_int ();
 
@@ -240,23 +240,6 @@ namespace ScreenRecorder {
                     folder_dir = settings.get_string ("folder-dir");
                 }
             });
-
-            light_dark_button.clicked.connect (() => {
-                dark_theme = !dark_theme;
-                Gtk.Settings.get_default().gtk_application_prefer_dark_theme = dark_theme;
-                if (dark_theme) {
-                    light_dark_button.set_image (icon_dark);
-                } else {
-                    light_dark_button.set_image (icon_light);
-                }
-            });
-            
-            Gtk.Settings.get_default().gtk_application_prefer_dark_theme = dark_theme;
-            if (dark_theme) {
-                light_dark_button.set_image (icon_dark);
-            } else {
-                light_dark_button.set_image (icon_light);
-            }
 
             delay_spin.value_changed.connect (() => {
                 delay = delay_spin.get_value_as_int () * 1000;

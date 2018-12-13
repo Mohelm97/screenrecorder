@@ -54,13 +54,12 @@ namespace ScreenRecorder {
                 return;
             }
             window = new MainWindow (this);
-            //window.add_class ("rounded");
+            window.get_style_context ().add_class ("rounded");
             window.show_all ();
         }
 
         public static int main (string[] args) {
             Gtk.init (ref args);
-            Gtk.Settings.get_default().gtk_application_prefer_dark_theme = true;
             var app = new ScreenRecorderApp ();
             return app.run (args);
         }
