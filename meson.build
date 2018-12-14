@@ -31,8 +31,10 @@ executable(
     'src/Application.vala',
     'src/MainWindow.vala',
     'src/FFmpegWrapper.vala',
+    'src/SaveDialog.vala',
     'src/Widgets/SelectionArea.vala',
     'src/Widgets/VideoPlayer.vala',
+    'src/Widgets/FormatComboBox.vala',
     'src/Utils/KeybindingManager.vala',
     dependencies: dependencies,
     install: true

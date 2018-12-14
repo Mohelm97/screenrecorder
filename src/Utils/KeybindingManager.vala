@@ -46,7 +46,7 @@ public class KeybindingManager : GLib.Object
         public string accelerator { get; set; }
         public int keycode { get; set; }
         public Gdk.ModifierType modifiers { get; set; }
-        public KeybindingHandlerFunc handler { get; set; }
+        public unowned KeybindingHandlerFunc handler { get; set; }
     }
  
     /**

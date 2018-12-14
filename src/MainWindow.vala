@@ -34,13 +34,13 @@ namespace ScreenRecorder {
         private Gtk.Switch pointer_switch;
         private Gtk.Switch borders_switch;
         private Gtk.ComboBoxText format_cmb;
-        private Gtk.Entry name_entry;
 
         private bool recording = false;
         private int delay;
         private int framerate;
-        private string folder_dir = Environment.get_user_special_dir (UserDirectory.VIDEOS)
-        +  "%c".printf(GLib.Path.DIR_SEPARATOR) + ScreenRecorderApp.SAVE_FOLDER;
+        private string tmpfilepath;
+        private int last_recording_width = 0;
+        private int last_recording_height = 0;
 
         public MainWindow (Gtk.Application app){
             Object (
@@ -91,62 +91,10 @@ namespace ScreenRecorder {
 
             var framerate_spin = new Gtk.SpinButton.with_range (1, 120, 1);
 
-            var save_as_label = new Gtk.Label (_("Save record as…"));
-            save_as_label.get_style_context ().add_class ("h4");
-            save_as_label.halign = Gtk.Align.END;
-
-            var name_label = new Gtk.Label (_("Name:"));
-            name_label.halign = Gtk.Align.END;
-
-            var date_time = new GLib.DateTime.now_local ().format ("%Y-%m-%d %H.%M.%S");
-
-            /// TRANSLATORS: %s represents a timestamp here
-            var file_name = _("Screen record from %s").printf (date_time);
-
-            if (this.scale_factor > 1) {
-                file_name += "@%ix".printf (this.scale_factor);
-            }
-
-            name_entry = new Gtk.Entry ();
-            name_entry.hexpand = true;
-            name_entry.text = file_name;
-
             var format_label = new Gtk.Label (_("Format:"));
             format_label.halign = Gtk.Align.END;
 
-            format_cmb = new Gtk.ComboBoxText ();
-            format_cmb.append_text ("mp4");
-            format_cmb.append_text ("ogv");
-            format_cmb.append_text ("mov");
-            format_cmb.append_text ("gif");
-
-            switch (settings.get_string ("format")) {
-                case "mp4":
-                    format_cmb.active = 0;
-                    break;
-                case "ogv":
-                    format_cmb.active = 1;
-                    break;
-                case "mov":
-                    format_cmb.active = 2;
-                    break;
-                case "gif":
-                    format_cmb.active = 3;
-                    break;
-            }
-
-            var location_label = new Gtk.Label (_("Folder:"));
-            location_label.halign = Gtk.Align.END;
-
-            var folder_from_settings = settings.get_string ("folder-dir");
-
-            if (folder_from_settings != folder_dir && folder_from_settings != "") {
-                folder_dir = folder_from_settings;
-            }
-            ScreenRecorderApp.create_dir_if_missing (folder_dir);
-
-            var location = new Gtk.FileChooserButton (_("Select Screen Records Folder…"), Gtk.FileChooserAction.SELECT_FOLDER);
-            location.set_current_folder (folder_dir);
+            format_cmb = new FormatComboBox (settings.get_string ("format"));
 
             record_btn = new Gtk.Button.with_label (_("Record Screen"));
             record_btn.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
@@ -186,15 +134,8 @@ namespace ScreenRecorder {
             grid.attach (delay_spin     , 1, 3, 1, 1);
             grid.attach (framerate_label, 0, 4, 1, 1);
             grid.attach (framerate_spin , 1, 4, 1, 1);
-            grid.attach (save_as_label  , 0, 5, 1, 1);
-            grid.attach (name_label     , 0, 6, 1, 1);
-            grid.attach (name_entry     , 1, 6, 1, 1);
-            grid.attach (format_label   , 0, 7, 1, 1);
-            grid.attach (format_cmb     , 1, 7, 1, 1);
-            grid.attach (location_label , 0, 8, 1, 1);
-            grid.attach (location       , 1, 8, 1, 1);
-            VideoPlayer vv = new VideoPlayer ("http://www.nicolas-hoffmann.net/animations/Cavernae_Terragen2.mp4");
-            grid.attach (vv       , 1, 9, 2, 1);
+            grid.attach (format_label, 0, 5, 1, 1);
+            grid.attach (format_cmb, 1, 5, 1, 1);
 
             var mode_switch = new Granite.ModeSwitch.from_icon_name ("display-brightness-symbolic", "weather-clear-night-symbolic");
             mode_switch.primary_icon_tooltip_text = ("Light background");
@@ -232,19 +173,11 @@ namespace ScreenRecorder {
             format_cmb.changed.connect (() => {
                 settings.set_string ("format", format_cmb.get_active_text ());
             });
-            
+
             if (settings.get_enum ("last-capture-mode") == CaptureType.AREA){
                 capture_mode = CaptureType.AREA;
                 selection.active = true;
             }
-
-            location.selection_changed.connect (() => {
-                SList<string> uris = location.get_uris ();
-                foreach (unowned string uri in uris) {
-                    settings.set_string ("folder-dir", Uri.unescape_string (uri.substring (7, -1)));
-                    folder_dir = settings.get_string ("folder-dir");
-                }
-            });
 
             delay_spin.value_changed.connect (() => {
                 delay = delay_spin.get_value_as_int () * 1000;
@@ -318,9 +251,14 @@ namespace ScreenRecorder {
 
             Gdk.Rectangle selection_rect;
             win.get_frame_extents (out selection_rect);
-            string filepath = Path.build_filename (folder_dir, name_entry.get_text ());
+            var temp_dir = Environment.get_tmp_dir ();
+            tmpfilepath = Path.build_filename (temp_dir, "screenrecorder-%08x.%s".printf (Random.next_int (), format_cmb.get_active_text ()));
+            debug ("Temp file created at: %s", tmpfilepath);
+
+            last_recording_width  = selection_rect.width;
+            last_recording_height = selection_rect.height;
             ffmpegwrapper = new FFmpegWrapper (
-                filepath, format_cmb.get_active_text (),
+                tmpfilepath, format_cmb.get_active_text (),
                 framerate,
                 selection_rect.x,
                 selection_rect.y,
@@ -337,9 +275,11 @@ namespace ScreenRecorder {
         }
         
         void stop_recording () {
+            ffmpegwrapper.stop();
+            var save_dialog = new SaveDialog (tmpfilepath, this, last_recording_width, last_recording_height);
+            save_dialog.show_all ();
             grid.set_sensitive (true);
             recording = false;
-            ffmpegwrapper.stop();
             actions.remove (stop_btn);
             actions.add (record_btn);
         }

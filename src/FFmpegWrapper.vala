@@ -39,7 +39,7 @@ namespace ScreenRecorder {
                     "-draw_mouse", show_mouse?"1":"0",
                     "-f", "x11grab",
                     "-i", "%s+%i,%i".printf (display, start_x, start_y),
-                    filepath + "." + ext
+                    filepath
                 };
                 SubprocessLauncher launcher = new SubprocessLauncher (SubprocessFlags.STDERR_PIPE);
                 subprocess = launcher.spawnv (spawn_args);
@@ -49,7 +49,12 @@ namespace ScreenRecorder {
         }
 
         public void stop () {
-            subprocess.send_signal(2);
+            subprocess.send_signal (2);
+            try {
+                subprocess.wait ();
+            } catch (Error e) {
+                warning (e.message);
+            }
         }
     }
 }
