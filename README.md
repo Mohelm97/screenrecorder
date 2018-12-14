@@ -14,7 +14,7 @@ You'll need the following dependencies:
 * libgranite-dev
 * libgtk3-dev
 * libx11-dev
-* libgstreamermm-1.0-dev
+* libgstreamer1.0-dev
 * valac
 
 Run `meson` to configure the build environment and then `ninja` to build and run automated tests
