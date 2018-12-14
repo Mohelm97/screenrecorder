@@ -25,6 +25,10 @@ namespace ScreenRecorder {
 
         public FFmpegWrapper (string filepath, string ext, int framerate, int start_x, int start_y, int width, int height, bool show_mouse, bool show_borders){
             try {
+                string display = Environment.get_variable ("DISPLAY");
+                if (display == null) {
+                  display = ":0";
+                }
                 string[] spawn_args = {
                     "ffmpeg",
                     "-y",
@@ -34,7 +38,7 @@ namespace ScreenRecorder {
                     "-region_border", "2",
                     "-draw_mouse", show_mouse?"1":"0",
                     "-f", "x11grab",
-                    "-i", ":0.0+%i,%i".printf (start_x, start_y),
+                    "-i", "%s+%i,%i".printf (display, start_x, start_y),
                     filepath + "." + ext
                 };
                 SubprocessLauncher launcher = new SubprocessLauncher (SubprocessFlags.STDERR_PIPE);

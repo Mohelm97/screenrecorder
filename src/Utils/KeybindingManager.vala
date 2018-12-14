@@ -80,7 +80,7 @@ public class KeybindingManager : GLib.Object
         Gdk.ModifierType modifiers;
         Gtk.accelerator_parse(accelerator, out keysym, out modifiers);
  
-        Gdk.Window rootwin = Gdk.get_default_root_window();     
+        Gdk.Window rootwin = Gdk.get_default_root_window();
         unowned X.Display display = ((Gdk.X11.Display) rootwin.get_display ()).get_xdisplay();
         X.ID xid = ((Gdk.X11.Window) rootwin).get_xid ();
         int keycode = display.keysym_to_keycode(keysym);            

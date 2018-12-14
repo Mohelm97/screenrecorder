@@ -193,6 +193,8 @@ namespace ScreenRecorder {
             grid.attach (format_cmb     , 1, 7, 1, 1);
             grid.attach (location_label , 0, 8, 1, 1);
             grid.attach (location       , 1, 8, 1, 1);
+            VideoPlayer vv = new VideoPlayer ("http://www.nicolas-hoffmann.net/animations/Cavernae_Terragen2.mp4");
+            grid.attach (vv       , 1, 9, 2, 1);
 
             var mode_switch = new Granite.ModeSwitch.from_icon_name ("display-brightness-symbolic", "weather-clear-night-symbolic");
             mode_switch.primary_icon_tooltip_text = ("Light background");
@@ -274,7 +276,7 @@ namespace ScreenRecorder {
             });
             stop_btn.clicked.connect (stop_recording);
             KeybindingManager manager = new KeybindingManager();
-            manager.bind("<Control><Shift>R", () => {
+            manager.bind("<Ctrl><Shift>R", () => {
                 if (recording) {
                     stop_recording ();
                 } else {
@@ -340,6 +342,27 @@ namespace ScreenRecorder {
             ffmpegwrapper.stop();
             actions.remove (stop_btn);
             actions.add (record_btn);
+        }
+
+        string get_default_audio_output () {
+            /*-
+             * Copyright (c) 2011-2015 Eidete Developers
+             * Copyright (c) 2017-2018 Artem Anufrij <artem.anufrij@live.de>
+             * https://github.com/artemanufrij/screencast
+             */
+            string default_output = "";
+            try {
+                string sound_outputs = "";
+                Process.spawn_command_line_sync ("pacmd list-sinks", out sound_outputs);
+                GLib.Regex re = new GLib.Regex ("(?<=\\*\\sindex:\\s\\d\\s\\sname:\\s<)[\\w\\.\\-]*");
+                MatchInfo mi;
+                if (re.match (sound_outputs, 0, out mi)) {
+                    default_output = mi.fetch (0);
+                }
+            } catch (Error e) {
+                warning (e.message);
+            }
+            return default_output;
         }
     }
 }

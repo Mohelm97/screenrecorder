@@ -20,7 +20,8 @@ dependencies = [
     dependency('granite'),
     dependency('gtk+-3.0'),
     dependency('x11'),
-    dependency('gdk-x11-3.0')
+    dependency('gdk-x11-3.0'),
+    dependency('gstreamer-1.0')
 ]
 
 # Create a new executable, list the files we want to compile, list the dependencies we need, and install
@@ -31,6 +32,7 @@ executable(
     'src/MainWindow.vala',
     'src/FFmpegWrapper.vala',
     'src/Widgets/SelectionArea.vala',
+    'src/Widgets/VideoPlayer.vala',
     'src/Utils/KeybindingManager.vala',
     dependencies: dependencies,
     install: true

@@ -47,10 +47,7 @@ namespace ScreenRecorder {
             add_action (quit_action);
             set_accels_for_action ("app.quit", {"<Control>q"});
         }
-        private static void test()
-{
-    debug("hotkey pressed");
-}
+
         protected override void activate () {
             if (window != null) {
                 window.present ();
@@ -63,6 +60,7 @@ namespace ScreenRecorder {
 
         public static int main (string[] args) {
             Gtk.init (ref args);
+            Gst.init (ref args);
             var app = new ScreenRecorderApp ();
             return app.run (args);
         }
