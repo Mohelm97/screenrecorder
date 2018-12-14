@@ -2,9 +2,10 @@
 
 A thin UI layer around FFmpeg for recording your screen.
 
-Right now this is just a one night skecth, sooo don't look at the code :D
+Right now this is just a sketch, sooo don't look at the code :D
 
-![screenshot](data/screenshot.png)
+![screenshot](data/screenshot_1.png)
+![screenshot](data/screenshot_2.png)
 
 ## Building & Installation
 
@@ -13,6 +14,8 @@ You'll need the following dependencies:
 * meson
 * libgranite-dev
 * libgtk3-dev
+* libx11-dev
+* libgstreamermm-1.0-dev
 * valac
 
 Run `meson` to configure the build environment and then `ninja` to build and run automated tests
