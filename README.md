@@ -4,8 +4,8 @@ A thin UI layer around FFmpeg for recording your screen.
 
 Right now this is just a sketch, sooo don't look at the code :D
 
-![screenshot](data/screenshot_1.png)
-![screenshot](data/screenshot_2.png | width=475)
+<img src="data/screenshot_1.png">
+<img src="data/screenshot_2.png" width="475">
 
 ## Building & Installation
 
