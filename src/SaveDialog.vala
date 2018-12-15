@@ -54,7 +54,8 @@ namespace ScreenRecorder {
                 height = int.min (height, max_width_height);
                 width = height * width / expected_height;
             }
-            preview.set_size_request (width, height);
+            var scale = get_style_context ().get_scale ();
+            preview.set_size_request (width / scale, height / scale);
 
             response.connect (manage_response);
             close.connect (remove_temp);
@@ -62,6 +63,7 @@ namespace ScreenRecorder {
 
         construct {
             GLib.Settings settings = ScreenRecorderApp.settings;
+            max_width_height = max_width_height * get_style_context ().get_scale ();
 
             preview = new VideoPlayer (filepath, max_width_height, max_width_height);
 

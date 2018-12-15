@@ -79,8 +79,8 @@ namespace ScreenRecorder {
                         }
 
                         var scale = get_style_context ().get_scale ();
-                        resize_width = width * scale;
-                        resize_height = height * scale;
+                        resize_width = width / scale;
+                        resize_height = height / scale;
                     }
 
                     if (pixbuf != null) {
