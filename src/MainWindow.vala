@@ -317,7 +317,10 @@ namespace ScreenRecorder {
             ffmpegwrapper.stop();
             present ();
             var save_dialog = new SaveDialog (tmpfilepath, this, last_recording_width, last_recording_height);
+            // set keep above to true just to present the window when we stop recording (Don't know why present () didn't work).
+            save_dialog.set_keep_above (true);
             save_dialog.show_all ();
+            save_dialog.set_keep_above (false);
             grid.set_sensitive (true);
             recording = false;
             actions.remove (stop_btn);

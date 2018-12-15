@@ -74,7 +74,7 @@ namespace ScreenRecorder {
                     }
                 }
                 spawn_args += "-preset";
-                spawn_args += "fast";
+                spawn_args += "ultrafast";
                 spawn_args += filepath;
 
                 debug ("ffmpeg command: %s",string.joinv(" ", spawn_args));
