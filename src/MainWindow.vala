@@ -82,12 +82,14 @@ namespace ScreenRecorder {
 
             record_cmp_switch = new Gtk.Switch ();
             record_cmp_switch.halign = Gtk.Align.START;
+            record_cmp_switch.bind_property ("sensitive", record_cmp_label, "sensitive", GLib.BindingFlags.DEFAULT);
 
             var record_mic_label = new Gtk.Label (_("Record from microphone:"));
             record_mic_label.halign = Gtk.Align.END;
 
             record_mic_switch = new Gtk.Switch ();
             record_mic_switch.halign = Gtk.Align.START;
+            record_mic_switch.bind_property ("sensitive", record_mic_label, "sensitive", GLib.BindingFlags.DEFAULT);
 
             var borders_label = new Gtk.Label (_("Show borders:"));
             borders_label.halign = Gtk.Align.END;
@@ -190,6 +192,20 @@ namespace ScreenRecorder {
             settings.bind ("format", format_cmb, "text_value", GLib.SettingsBindFlags.DEFAULT);
             delay = delay_spin.get_value_as_int () * 1000;
             framerate = framerate_spin.get_value_as_int ();
+
+            format_cmb.changed.connect (() => {
+                if (format_cmb.get_active_text () == "gif") {
+                    record_cmp_switch.set_sensitive (false);
+                    record_mic_switch.set_sensitive (false);
+                } else {
+                    record_cmp_switch.set_sensitive (true);
+                    record_mic_switch.set_sensitive (true);
+                }
+            });
+            if (format_cmb.get_active_text () == "gif"){
+                record_cmp_switch.set_sensitive (false);
+                record_mic_switch.set_sensitive (false);
+            }
 
             if (settings.get_enum ("last-capture-mode") == CaptureType.AREA){
                 capture_mode = CaptureType.AREA;
