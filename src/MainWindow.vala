@@ -298,6 +298,8 @@ namespace ScreenRecorder {
             }
             tmpfilepath = Path.build_filename (temp_dir, "screenrecorder-%08x.%s".printf (Random.next_int (), extension));
             debug ("Temp file created at: %s", tmpfilepath);
+            selection_rect.width  = selection_rect.width  + (selection_rect.width % 2);
+            selection_rect.height = selection_rect.height + (selection_rect.height % 2);
 
             last_recording_width  = selection_rect.width;
             last_recording_height = selection_rect.height;
