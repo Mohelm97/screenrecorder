@@ -132,13 +132,13 @@ namespace ScreenRecorder {
             add_button (_("Cancel"), 0);
 
             var save_original_btn = add_button (_("Save Original"), 1);
-            save_original_btn.sensitive = (format_cmb.get_active_text () != "gif");
 
             save_btn = add_button (_("Save Renderd"), 2) as Gtk.Button;
             save_btn.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
 
             settings.bind ("format", format_cmb, "text_value", GLib.SettingsBindFlags.DEFAULT);
             format_cmb.sensitive = false;
+            save_original_btn.sensitive = (format_cmb.get_active_text () != "gif");
             location.selection_changed.connect (() => {
                 SList<string> uris = location.get_uris ();
                 foreach (unowned string uri in uris) {

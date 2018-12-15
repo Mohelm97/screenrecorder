@@ -17,7 +17,7 @@ You'll need the following dependencies:
 * libgstreamer1.0-dev
 * valac
 
-Run `meson` to configure the build environment and then `ninja` to build and run automated tests
+Run `meson` to configure the build environment and then `ninja` to build and install
 
     meson build --prefix=/usr
     cd build

@@ -245,7 +245,6 @@ namespace ScreenRecorder {
             manager.bind("<Ctrl><Shift>R", () => {
                 if (recording) {
                     stop_recording ();
-                    present ();
                 } else {
                     record_btn.clicked ();
                 }
@@ -316,6 +315,7 @@ namespace ScreenRecorder {
         
         void stop_recording () {
             ffmpegwrapper.stop();
+            present ();
             var save_dialog = new SaveDialog (tmpfilepath, this, last_recording_width, last_recording_height);
             save_dialog.show_all ();
             grid.set_sensitive (true);
