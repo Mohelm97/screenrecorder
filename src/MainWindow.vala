@@ -241,6 +241,13 @@ namespace ScreenRecorder {
                 }
             });
             stop_btn.clicked.connect (stop_recording);
+            delete_event.connect (() => {
+                if (recording) {
+                    stop_recording ();
+                    return true;
+                }
+                return false;
+            });
             KeybindingManager manager = new KeybindingManager();
             manager.bind("<Ctrl><Shift>R", () => {
                 if (recording) {
