@@ -21,22 +21,31 @@
 
 namespace ScreenRecorder {
     public class FormatComboBox : Gtk.ComboBoxText {
-        public FormatComboBox (string selected) {
+        private string _text_value;
+        public string text_value {
+            get { return _text_value; }
+            set {
+                _text_value = value;
+                switch (value) {
+                    case "mp4":
+                        active = 0;
+                        break;
+                    case "mov":
+                        active = 1;
+                        break;
+                    case "gif":
+                        active = 2;
+                        break;
+                }
+            }
+        }
+        public FormatComboBox () {
             append_text ("mp4");
             append_text ("mov");
             append_text ("gif");
-
-            switch (selected) {
-                case "mp4":
-                    active = 0;
-                    break;
-                case "mov":
-                    active = 1;
-                    break;
-                case "gif":
-                    active = 2;
-                    break;
-            }
+            changed.connect (() => {
+                text_value = get_active_text ();
+            });
         }
     }
 }

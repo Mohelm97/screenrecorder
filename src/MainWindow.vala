@@ -108,7 +108,7 @@ namespace ScreenRecorder {
             var format_label = new Gtk.Label (_("Format:"));
             format_label.halign = Gtk.Align.END;
 
-            format_cmb = new FormatComboBox (settings.get_string ("format"));
+            format_cmb = new FormatComboBox ();
 
             record_btn = new Gtk.Button.with_label (_("Record Screen"));
             record_btn.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
@@ -187,12 +187,9 @@ namespace ScreenRecorder {
             settings.bind ("show-borders", borders_switch, "active", GLib.SettingsBindFlags.DEFAULT);
             settings.bind ("delay", delay_spin, "value", GLib.SettingsBindFlags.DEFAULT);
             settings.bind ("framerate", framerate_spin, "value", GLib.SettingsBindFlags.DEFAULT);
+            settings.bind ("format", format_cmb, "text_value", GLib.SettingsBindFlags.DEFAULT);
             delay = delay_spin.get_value_as_int () * 1000;
             framerate = framerate_spin.get_value_as_int ();
-
-            format_cmb.changed.connect (() => {
-                settings.set_string ("format", format_cmb.get_active_text ());
-            });
 
             if (settings.get_enum ("last-capture-mode") == CaptureType.AREA){
                 capture_mode = CaptureType.AREA;

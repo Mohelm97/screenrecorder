@@ -96,7 +96,7 @@ namespace ScreenRecorder {
             var format_label = new Gtk.Label (_("Format:"));
             format_label.halign = Gtk.Align.END;
 
-            format_cmb = new FormatComboBox (settings.get_string ("format"));
+            format_cmb = new FormatComboBox ();
             format_cmb.sensitive = false;
 
             var location_label = new Gtk.Label (_("Folder:"));
