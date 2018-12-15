@@ -31,6 +31,8 @@ namespace ScreenRecorder {
         private Gtk.ButtonBox actions;
         private Gtk.Button record_btn;
         private Gtk.Button stop_btn;
+        private Gtk.Switch record_cmp_switch;
+        private Gtk.Switch record_mic_switch;
         private Gtk.Switch pointer_switch;
         private Gtk.Switch borders_switch;
         private Gtk.ComboBoxText format_cmb;
@@ -74,6 +76,18 @@ namespace ScreenRecorder {
 
             pointer_switch = new Gtk.Switch ();
             pointer_switch.halign = Gtk.Align.START;
+
+            var record_cmp_label = new Gtk.Label (_("Record computer sounds:"));
+            record_cmp_label.halign = Gtk.Align.END;
+
+            record_cmp_switch = new Gtk.Switch ();
+            record_cmp_switch.halign = Gtk.Align.START;
+
+            var record_mic_label = new Gtk.Label (_("Record from microphone:"));
+            record_mic_label.halign = Gtk.Align.END;
+
+            record_mic_switch = new Gtk.Switch ();
+            record_mic_switch.halign = Gtk.Align.START;
 
             var borders_label = new Gtk.Label (_("Show borders:"));
             borders_label.halign = Gtk.Align.END;
@@ -125,17 +139,21 @@ namespace ScreenRecorder {
             grid.margin_top = 0;
             grid.row_spacing = 6;
             grid.column_spacing = 12;
-            grid.attach (radio_grid     , 0, 0, 2, 1);
-            grid.attach (pointer_label  , 0, 1, 1, 1);
-            grid.attach (pointer_switch , 1, 1, 1, 1);
-            grid.attach (borders_label  , 0, 2, 1, 1);
-            grid.attach (borders_switch , 1, 2, 1, 1);
-            grid.attach (delay_label    , 0, 3, 1, 1);
-            grid.attach (delay_spin     , 1, 3, 1, 1);
-            grid.attach (framerate_label, 0, 4, 1, 1);
-            grid.attach (framerate_spin , 1, 4, 1, 1);
-            grid.attach (format_label, 0, 5, 1, 1);
-            grid.attach (format_cmb, 1, 5, 1, 1);
+            grid.attach (radio_grid        , 0, 0, 2, 1);
+            grid.attach (record_cmp_label  , 0, 1, 1, 1);
+            grid.attach (record_cmp_switch , 1, 1, 1, 1);
+            grid.attach (record_mic_label  , 0, 2, 1, 1);
+            grid.attach (record_mic_switch , 1, 2, 1, 1);
+            grid.attach (pointer_label     , 0, 3, 1, 1);
+            grid.attach (pointer_switch    , 1, 3, 1, 1);
+            grid.attach (borders_label     , 0, 4, 1, 1);
+            grid.attach (borders_switch    , 1, 4, 1, 1);
+            grid.attach (delay_label       , 0, 5, 1, 1);
+            grid.attach (delay_spin        , 1, 5, 1, 1);
+            grid.attach (framerate_label   , 0, 6, 1, 1);
+            grid.attach (framerate_spin    , 1, 6, 1, 1);
+            grid.attach (format_label      , 0, 7, 1, 1);
+            grid.attach (format_cmb        , 1, 7, 1, 1);
 
             var mode_switch = new Granite.ModeSwitch.from_icon_name ("display-brightness-symbolic", "weather-clear-night-symbolic");
             mode_switch.primary_icon_tooltip_text = ("Light background");
@@ -163,6 +181,8 @@ namespace ScreenRecorder {
             mode_switch.bind_property ("active", gtk_settings, "gtk_application_prefer_dark_theme");
 
             settings.bind ("dark-theme", mode_switch, "active", GLib.SettingsBindFlags.DEFAULT);
+            settings.bind ("record-computer", record_cmp_switch, "active", GLib.SettingsBindFlags.DEFAULT);
+            settings.bind ("record-microphone", record_mic_switch, "active", GLib.SettingsBindFlags.DEFAULT);
             settings.bind ("mouse-pointer", pointer_switch, "active", GLib.SettingsBindFlags.DEFAULT);
             settings.bind ("show-borders", borders_switch, "active", GLib.SettingsBindFlags.DEFAULT);
             settings.bind ("delay", delay_spin, "value", GLib.SettingsBindFlags.DEFAULT);
@@ -212,12 +232,13 @@ namespace ScreenRecorder {
             manager.bind("<Ctrl><Shift>R", () => {
                 if (recording) {
                     stop_recording ();
+                    present ();
                 } else {
                     record_btn.clicked ();
                 }
             });
         }
-        
+
         void capture_screen () {
             Timeout.add (delay, () => {
                 start_recording (null);
@@ -252,7 +273,11 @@ namespace ScreenRecorder {
             Gdk.Rectangle selection_rect;
             win.get_frame_extents (out selection_rect);
             var temp_dir = Environment.get_tmp_dir ();
-            tmpfilepath = Path.build_filename (temp_dir, "screenrecorder-%08x.%s".printf (Random.next_int (), format_cmb.get_active_text ()));
+            string extension = format_cmb.get_active_text ();
+            if (extension == "gif") {
+                extension = "mp4";
+            }
+            tmpfilepath = Path.build_filename (temp_dir, "screenrecorder-%08x.%s".printf (Random.next_int (), extension));
             debug ("Temp file created at: %s", tmpfilepath);
 
             last_recording_width  = selection_rect.width;
@@ -265,7 +290,9 @@ namespace ScreenRecorder {
                 selection_rect.width,
                 selection_rect.height,
                 pointer_switch.get_state (),
-                borders_switch.get_state ()
+                borders_switch.get_state (),
+                record_cmp_switch.get_state (),
+                record_mic_switch.get_state ()
             );
             grid.set_sensitive (false);
             recording = true;
@@ -282,27 +309,6 @@ namespace ScreenRecorder {
             recording = false;
             actions.remove (stop_btn);
             actions.add (record_btn);
-        }
-
-        string get_default_audio_output () {
-            /*-
-             * Copyright (c) 2011-2015 Eidete Developers
-             * Copyright (c) 2017-2018 Artem Anufrij <artem.anufrij@live.de>
-             * https://github.com/artemanufrij/screencast
-             */
-            string default_output = "";
-            try {
-                string sound_outputs = "";
-                Process.spawn_command_line_sync ("pacmd list-sinks", out sound_outputs);
-                GLib.Regex re = new GLib.Regex ("(?<=\\*\\sindex:\\s\\d\\s\\sname:\\s<)[\\w\\.\\-]*");
-                MatchInfo mi;
-                if (re.match (sound_outputs, 0, out mi)) {
-                    default_output = mi.fetch (0);
-                }
-            } catch (Error e) {
-                warning (e.message);
-            }
-            return default_output;
         }
     }
 }

@@ -28,10 +28,12 @@ namespace ScreenRecorder {
         public string filepath { get; construct; }
 
         private Gtk.Entry name_entry;
+        private Gtk.Button save_btn;
         private VideoPlayer preview;
         private FormatComboBox format_cmb;
         private string folder_dir = Environment.get_user_special_dir (UserDirectory.VIDEOS)
         +  "%c".printf(GLib.Path.DIR_SEPARATOR) + ScreenRecorderApp.SAVE_FOLDER;
+        private int max_width_height = 500;
 
         public SaveDialog (string filepath, Gtk.Window parent, int expected_width, int expected_height) {
             Object (
@@ -46,10 +48,10 @@ namespace ScreenRecorder {
             int width = expected_width;
             int height = expected_height;
             if (width > height) {
-                width = int.min (width, 400);
+                width = int.min (width, max_width_height);
                 height = width * height / expected_width;
             } else {
-                height = int.min (height, 400);
+                height = int.min (height, max_width_height);
                 width = height * width / expected_height;
             }
             preview.set_size_request (width, height);
@@ -61,7 +63,7 @@ namespace ScreenRecorder {
         construct {
             GLib.Settings settings = ScreenRecorderApp.settings;
 
-            preview = new VideoPlayer (filepath, 500, 500);
+            preview = new VideoPlayer (filepath, max_width_height, max_width_height);
 
             var preview_box = new Gtk.Grid ();
             preview_box.halign = Gtk.Align.CENTER;
@@ -129,8 +131,11 @@ namespace ScreenRecorder {
             content.add (grid);
 
             add_button (_("Cancel"), 0);
-            
-            var save_btn = add_button (_("Save"), 1);
+
+            var save_original_btn = add_button (_("Save Original"), 1);
+            save_original_btn.sensitive = (format_cmb.get_active_text () != "gif");
+
+            save_btn = add_button (_("Save Renderd"), 2) as Gtk.Button;
             save_btn.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
 
             location.selection_changed.connect (() => {
@@ -162,6 +167,19 @@ namespace ScreenRecorder {
                     print ("Error: %s\n", e.message);
                 }
                 close ();
+            } else if (response_id == 2) {
+                save_btn.always_show_image = true;
+                var spinner = new Gtk.Spinner ();
+                save_btn.set_image (spinner);
+                spinner.start ();
+                sensitive = false;
+                string save_filepath = Path.build_filename (folder_dir, "%s.%s".printf (name_entry.get_text (), format_cmb.get_active_text ()));
+                FFmpegWrapper.render_file.begin (filepath, save_filepath, format_cmb.get_active_text (), (obj, res) => {
+                    sensitive = true;
+                    save_btn.set_image (null);
+                    debug ("Render done");
+                    close ();
+                });
             } else {
                 close ();
             }

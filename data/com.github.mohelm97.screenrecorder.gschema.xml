@@ -5,6 +5,12 @@
         <value nick="area" value="1"/>
     </enum>
     <schema id="com.github.mohelm97.screenrecorder" path="/com/github/mohelm97/screenrecorder/" gettext-domain="com.github.mohelm97.screenrecorder">
+        <key name="record-computer" type="b">
+            <default>false</default>
+        </key>
+        <key name="record-microphone" type="b">
+            <default>false</default>
+        </key>
         <key name="dark-theme" type="b">
             <default>false</default>
         </key>

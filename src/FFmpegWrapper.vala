@@ -23,12 +23,24 @@ namespace ScreenRecorder {
     public class FFmpegWrapper : GLib.Object {
         private Subprocess? subprocess;
 
-        public FFmpegWrapper (string filepath, string ext, int framerate, int start_x, int start_y, int width, int height, bool show_mouse, bool show_borders){
+        public FFmpegWrapper (
+            string filepath,
+            string ext,
+            int framerate,
+            int start_x,
+            int start_y,
+            int width,
+            int height,
+            bool show_mouse,
+            bool show_borders,
+            bool record_cmp,
+            bool record_mic){
             try {
                 string display = Environment.get_variable ("DISPLAY");
                 if (display == null) {
                   display = ":0";
                 }
+                bool is_gif = (ext == "gif");
                 string[] spawn_args = {
                     "ffmpeg",
                     "-y",
@@ -38,9 +50,34 @@ namespace ScreenRecorder {
                     "-region_border", "2",
                     "-draw_mouse", show_mouse?"1":"0",
                     "-f", "x11grab",
-                    "-i", "%s+%i,%i".printf (display, start_x, start_y),
-                    filepath
+                    "-i", "%s+%i,%i".printf (display, start_x, start_y)
                 };
+                if (record_mic && !is_gif) {
+                    spawn_args += "-f";
+                    spawn_args += "pulse";
+                    spawn_args += "-i";
+                    spawn_args += "default";
+                }
+                if (record_cmp && !is_gif) {
+                    string default_audio_output = get_default_audio_output ();
+                    if (default_audio_output != "") {
+                        spawn_args += "-f";
+                        spawn_args += "pulse";
+                        spawn_args += "-i";
+                        spawn_args += default_audio_output;
+                        if (record_mic) {
+                            spawn_args += "-filter_complex";
+                            spawn_args += "amerge";
+                            spawn_args += "-ac";
+                            spawn_args += "2";
+                        }
+                    }
+                }
+                spawn_args += "-preset";
+                spawn_args += "fast";
+                spawn_args += filepath;
+
+                debug ("ffmpeg command: %s",string.joinv(" ", spawn_args));
                 SubprocessLauncher launcher = new SubprocessLauncher (SubprocessFlags.STDERR_PIPE);
                 subprocess = launcher.spawnv (spawn_args);
             } catch (Error e) {
@@ -55,6 +92,56 @@ namespace ScreenRecorder {
             } catch (Error e) {
                 warning (e.message);
             }
+        }
+
+        string get_default_audio_output () {
+            /*-
+             * Copyright (c) 2011-2015 Eidete Developers
+             * Copyright (c) 2017-2018 Artem Anufrij <artem.anufrij@live.de>
+             * https://github.com/artemanufrij/screencast
+             */
+            string default_output = "";
+            try {
+                string sound_outputs = "";
+                Process.spawn_command_line_sync ("pacmd list-sinks", out sound_outputs);
+                GLib.Regex re = new GLib.Regex ("(?<=\\*\\sindex:\\s\\d\\s\\sname:\\s<)[\\w\\.\\-]*");
+                MatchInfo mi;
+                if (re.match (sound_outputs, 0, out mi)) {
+                    default_output = mi.fetch (0);
+                }
+            } catch (Error e) {
+                warning (e.message);
+            }
+            return default_output+".monitor";
+        }
+
+        public static async bool render_file (string inputpath, string outputpath, string extension) {
+            bool return_value = false;
+            try {
+                string[] spawn_args = {
+                    "ffmpeg",
+                    "-i",
+                    inputpath,
+                    outputpath
+                };
+                if (extension == "gif") {
+                    spawn_args = {
+                        "ffmpeg",
+                        "-i",
+                        inputpath,
+                        "-filter_complex",
+                        "[0:v] split [a][b];[a] palettegen [p];[b][p] paletteuse",
+                        outputpath
+                    };
+                }
+                debug ("ffmpeg command: %s",string.joinv(" ", spawn_args));
+                SubprocessLauncher launcher = new SubprocessLauncher (SubprocessFlags.STDERR_PIPE);
+                Subprocess? render_subprocess = launcher.spawnv (spawn_args);
+                return_value = yield render_subprocess.wait_check_async ();
+            } catch (Error e) {
+                GLib.warning (e.message);
+            }
+            return return_value;
         }
     }
 }

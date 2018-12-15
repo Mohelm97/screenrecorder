@@ -23,7 +23,6 @@ namespace ScreenRecorder {
     public class FormatComboBox : Gtk.ComboBoxText {
         public FormatComboBox (string selected) {
             append_text ("mp4");
-            append_text ("ogv");
             append_text ("mov");
             append_text ("gif");
 
@@ -31,14 +30,11 @@ namespace ScreenRecorder {
                 case "mp4":
                     active = 0;
                     break;
-                case "ogv":
+                case "mov":
                     active = 1;
                     break;
-                case "mov":
-                    active = 2;
-                    break;
                 case "gif":
-                    active = 3;
+                    active = 2;
                     break;
             }
         }
