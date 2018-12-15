@@ -36,6 +36,8 @@ namespace ScreenRecorder {
             bool record_cmp,
             bool record_mic){
             try {
+                width = width + (width % 2);
+                height = height + (height % 2);
                 string display = Environment.get_variable ("DISPLAY");
                 if (display == null) {
                   display = ":0";
@@ -120,8 +122,8 @@ namespace ScreenRecorder {
             try {
                 string[] spawn_args = {
                     "ffmpeg",
-                    "-i",
-                    inputpath,
+                    "-i", inputpath,
+                    "-pix_fmt", "yuv420p",
                     outputpath
                 };
                 if (extension == "gif") {
