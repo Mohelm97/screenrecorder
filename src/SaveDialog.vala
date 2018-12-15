@@ -97,7 +97,6 @@ namespace ScreenRecorder {
             format_label.halign = Gtk.Align.END;
 
             format_cmb = new FormatComboBox ();
-            format_cmb.sensitive = false;
 
             var location_label = new Gtk.Label (_("Folder:"));
             location_label.halign = Gtk.Align.END;
@@ -138,6 +137,8 @@ namespace ScreenRecorder {
             save_btn = add_button (_("Save Renderd"), 2) as Gtk.Button;
             save_btn.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
 
+            settings.bind ("format", format_cmb, "text_value", GLib.SettingsBindFlags.DEFAULT);
+            format_cmb.sensitive = false;
             location.selection_changed.connect (() => {
                 SList<string> uris = location.get_uris ();
                 foreach (unowned string uri in uris) {
