@@ -22,81 +22,57 @@
 namespace ScreenRecorder {
     public class VideoPlayer : Gtk.Grid  {
         private string fileuri;
-        private Gst.Element player;
-        private Gst.Element sink;
-        private Gtk.Image image;
-        private int resize_width  = 0;
-        private int resize_height = 0;
-        private int max_width;
-        private int max_height;
+        private ClutterGst.Playback playback;
+        private GtkClutter.Embed clutter;
+        private Clutter.Actor video_actor;
+        private Clutter.Stage stage;
 
-        public VideoPlayer (string filepath, int max_width, int max_height) {
-            image = new Gtk.Image ();
-            add (image);
+        public VideoPlayer (string filepath) {
             show.connect (create_sink_and_play);
             destroy.connect (stop_and_destroy);
             this.fileuri = "file://"+filepath;
-            this.max_width = max_width;
-            this.max_height = max_height;
         }
 
         private void create_sink_and_play () {
-            player = Gst.ElementFactory.make ("playbin", "playbin");
-            sink = Gst.ElementFactory.make ("gdkpixbufsink", "sink");
-            player["video-sink"] = sink;
-            player["uri"] = fileuri;
-            player.set_state (Gst.State.PLAYING);
-            
-            // Simple ugly loop :)
-            uint64 last_position = 0;
-            Timeout.add (500, () => {
-                if (player != null) {
-                    uint64 position;
-                    player.query_position (Gst.Format.TIME, out position);
-                    if (position == last_position && last_position != 0) {
-                        player.seek_simple (Gst.Format.TIME, Gst.SeekFlags.FLUSH | Gst.SeekFlags.SEGMENT, 0);
-                    }
-                    last_position = position;
-                }
-                return visible;
+            playback = new ClutterGst.Playback ();
+            playback.eos.connect (() => {
+                playback.progress = 0;
+                playback.playing = true;
             });
+            playback.set_seek_flags (ClutterGst.SeekFlags.ACCURATE);
 
-            Timeout.add (10, () => {
-                if (player != null) {
-                    Gdk.Pixbuf pixbuf;
-                    sink.get ("last-pixbuf", out pixbuf);
+            clutter = new GtkClutter.Embed ();
 
-                    // Just calculate the prefered width, height at the first frame.
-                    if (resize_width == 0 && pixbuf != null){
-                        int width = pixbuf.get_width ();
-                        int height = pixbuf.get_height () ;
-                        if (width > height) {
-                            width = int.min (width, max_width);
-                            height = width * height / pixbuf.get_width ();
-                        } else {
-                            height = int.min (height, max_height);
-                            width = height * width / pixbuf.get_height ();
-                        }
+            stage = (Clutter.Stage) clutter.get_stage ();
+            stage.background_color = {0, 0, 0, 0};
 
-                        var scale = get_style_context ().get_scale ();
-                        resize_width = width / scale;
-                        resize_height = height / scale;
-                    }
+            video_actor = new Clutter.Actor ();
 
-                    if (pixbuf != null) {
-                        image.pixbuf = pixbuf.scale_simple (resize_width, resize_height, Gdk.InterpType.BILINEAR);
-                    }
+            #if VALA_0_34
+                var aspect_ratio = new ClutterGst.Aspectratio ();
+            #else
+                var aspect_ratio = ClutterGst.Aspectratio.@new ();
+            #endif
 
-                }
-                return visible;
-            });
+            ((ClutterGst.Aspectratio) aspect_ratio).paint_borders = false;
+            ((ClutterGst.Content) aspect_ratio).player = playback;
+            video_actor.content = aspect_ratio;
+
+            video_actor.add_constraint (new Clutter.BindConstraint (stage, Clutter.BindCoordinate.WIDTH, 0));
+            video_actor.add_constraint (new Clutter.BindConstraint (stage, Clutter.BindCoordinate.HEIGHT, 0));
+
+            stage.add_child (video_actor);
+
+            add (clutter);
+            show_all ();
+
+            playback.uri = fileuri;
+            playback.playing = true;
         }
 
         private void stop_and_destroy () {
-            player.set_state (Gst.State.NULL);
-            sink.set_state (Gst.State.NULL);
-            player = null;
-            sink = null;
+            playback.playing = false;
+            playback.uri = null;
         }
 
     }

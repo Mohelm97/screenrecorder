@@ -21,7 +21,9 @@ dependencies = [
     dependency('gtk+-3.0'),
     dependency('x11'),
     dependency('gdk-x11-3.0'),
-    dependency('gstreamer-1.0')
+    dependency('gstreamer-1.0'),
+    dependency('clutter-gst-3.0'),
+    dependency('clutter-gtk-1.0')
 ]
 
 # Create a new executable, list the files we want to compile, list the dependencies we need, and install

@@ -15,6 +15,8 @@ You'll need the following dependencies:
 * libgtk3-dev
 * libx11-dev
 * libgstreamer1.0-dev
+* libclutter-gst-3.0-dev
+* libclutter-gtk-1.0-dev
 * valac
 
 Run `meson` to configure the build environment and then `ninja` to build and install

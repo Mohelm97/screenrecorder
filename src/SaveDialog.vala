@@ -65,7 +65,7 @@ namespace ScreenRecorder {
             GLib.Settings settings = ScreenRecorderApp.settings;
             max_width_height = max_width_height * get_style_context ().get_scale ();
 
-            preview = new VideoPlayer (filepath, max_width_height, max_width_height);
+            preview = new VideoPlayer (filepath);
 
             var preview_box = new Gtk.Grid ();
             preview_box.halign = Gtk.Align.CENTER;

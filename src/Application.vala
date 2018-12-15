@@ -61,6 +61,10 @@ namespace ScreenRecorder {
         public static int main (string[] args) {
             Gtk.init (ref args);
             Gst.init (ref args);
+            var err = GtkClutter.init (ref args);
+            if (err != Clutter.InitError.SUCCESS) {
+                error ("Could not initalize clutter! "+err.to_string ());
+            }
             var app = new ScreenRecorderApp ();
             return app.run (args);
         }
