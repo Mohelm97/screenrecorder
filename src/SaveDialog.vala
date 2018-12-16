@@ -26,6 +26,8 @@ namespace ScreenRecorder {
     public class SaveDialog : Gtk.Dialog {
 
         public string filepath { get; construct; }
+        public int expected_width {get; construct;}
+        public int expected_height {get; construct;}
 
         private Gtk.Entry name_entry;
         private Gtk.Button save_btn;
@@ -33,7 +35,6 @@ namespace ScreenRecorder {
         private FormatComboBox format_cmb;
         private string folder_dir = Environment.get_user_special_dir (UserDirectory.VIDEOS)
         +  "%c".printf(GLib.Path.DIR_SEPARATOR) + ScreenRecorderApp.SAVE_FOLDER;
-        private int max_width_height = 500;
 
         public SaveDialog (string filepath, Gtk.Window parent, int expected_width, int expected_height) {
             Object (
@@ -43,19 +44,10 @@ namespace ScreenRecorder {
                 resizable: false,
                 title: parent.title,
                 transient_for: parent,
-                filepath: filepath
+                filepath: filepath,
+                expected_width: expected_width,
+                expected_height: expected_height
             );
-            int width = expected_width;
-            int height = expected_height;
-            if (width > height) {
-                width = int.min (width, max_width_height);
-                height = width * height / expected_width;
-            } else {
-                height = int.min (height, max_width_height);
-                width = height * width / expected_height;
-            }
-            var scale = get_style_context ().get_scale ();
-            preview.set_size_request (width / scale, height / scale);
 
             response.connect (manage_response);
             close.connect (remove_temp);
@@ -63,9 +55,8 @@ namespace ScreenRecorder {
 
         construct {
             GLib.Settings settings = ScreenRecorderApp.settings;
-            max_width_height = max_width_height * get_style_context ().get_scale ();
-
-            preview = new VideoPlayer (filepath);
+            debug (expected_width.to_string());
+            preview = new VideoPlayer (filepath, expected_width, expected_height, 500);
 
             var preview_box = new Gtk.Grid ();
             preview_box.halign = Gtk.Align.CENTER;
@@ -73,7 +64,7 @@ namespace ScreenRecorder {
 
             var preview_box_context = preview_box.get_style_context ();
             preview_box_context.add_class ("card");
-            preview_box_context.add_class ("checkerboard-layout");
+            //preview_box_context.add_class ("checkerboard-layout");
 
             var dialog_label = new Gtk.Label (_("Save record as…"));
             dialog_label.get_style_context ().add_class ("h4");
@@ -116,6 +107,7 @@ namespace ScreenRecorder {
             var grid = new Gtk.Grid ();
             grid.margin = 6;
             grid.margin_top = 0;
+            grid.margin_bottom = 12;
             grid.row_spacing = 12;
             grid.column_spacing = 12;
             grid.attach (preview_box, 0, 0, 2, 1);
@@ -128,14 +120,13 @@ namespace ScreenRecorder {
             grid.attach (location, 1, 4, 1, 1);
 
             var content = this.get_content_area () as Gtk.Box;
-            grid.margin_bottom = 12;
             content.add (grid);
 
             add_button (_("Cancel"), 0);
 
             var save_original_btn = add_button (_("Save Original"), 1);
 
-            save_btn = add_button (_("Save Renderd"), 2) as Gtk.Button;
+            save_btn = add_button (_("Save"), 2) as Gtk.Button;
             save_btn.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
 
             settings.bind ("format", format_cmb, "text_value", GLib.SettingsBindFlags.DEFAULT);
@@ -151,7 +142,7 @@ namespace ScreenRecorder {
 
             key_press_event.connect ((e) => {
                 if (e.keyval == Gdk.Key.Return) {
-                    manage_response (1);
+                    manage_response (2);
                 }
 
                 return false;
