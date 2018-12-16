@@ -7,26 +7,108 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.mohelm97.screenrecorder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-12 15:17+0000\n"
-"PO-Revision-Date: 2018-12-12 03:18+0000\n"
+"POT-Creation-Date: 2018-12-16 09:57+0000\n"
+"PO-Revision-Date: 2018-12-16 10:02+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ASCII\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.6\n"
 
-#: src/Application.vala:6
+#: src/Application.vala:27
 msgid "Screen Records"
 msgstr ""
 
-#: data/com.github.mohelm97.screenrecorder.desktop.in:3
+#: src/MainWindow.vala:60
+msgid "Grab the whole screen"
+msgstr "تسجيل كل الشاشة"
+
+#: src/MainWindow.vala:64
+msgid "Select area to grab"
+msgstr "حدد منطقة للتسجيل"
+
+#: src/MainWindow.vala:74
+msgid "Grab mouse pointer:"
+msgstr "أظهر مؤشر الشاشة:"
+
+#: src/MainWindow.vala:80
+msgid "Record computer sounds:"
+msgstr "تسجيل صوت الحاسوب:"
+
+#: src/MainWindow.vala:87
+msgid "Record from microphone:"
+msgstr "تسجيل صوت الميكروفون:"
+
+#: src/MainWindow.vala:94
+msgid "Show borders:"
+msgstr "إظهار الحدود:"
+
+#: src/MainWindow.vala:100
+msgid "Delay in seconds:"
+msgstr "تسجيل بعد (بالثواني):"
+
+#: src/MainWindow.vala:105
+msgid "Frame rate:"
+msgstr "عدد الفريمات:"
+
+#: src/MainWindow.vala:110 src/SaveDialog.vala:89
+msgid "Format:"
+msgstr "الصيغة:"
+
+#: src/MainWindow.vala:115
+msgid "Record Screen"
+msgstr "تسجيل الشاشة"
+
+#: src/MainWindow.vala:120
+msgid "Stop Recording"
+msgstr "إيقاف التسجيل"
+
+#: src/MainWindow.vala:165 data/com.github.mohelm97.screenrecorder.desktop.in:3
 msgid "Screen Recorder"
-msgstr ""
+msgstr "مسجل الشاشة"
+
+#: src/SaveDialog.vala:69
+msgid "Save record as…"
+msgstr "حفظ التسجيل كـ…"
+
+#: src/SaveDialog.vala:73
+msgid "Name:"
+msgstr "الاسم:"
+
+#: src/SaveDialog.vala:79
+#, c-format
+msgid "Screen record from %s"
+msgstr "تسجيل شاشة في %s"
+
+#: src/SaveDialog.vala:94
+msgid "Folder:"
+msgstr "المجلد:"
+
+#: src/SaveDialog.vala:104
+msgid "Select Screen Records Folder…"
+msgstr "أختر المجلد لحفظ التسجيلات…"
+
+#: src/SaveDialog.vala:125
+msgid "Cancel"
+msgstr "إلغاء"
+
+#: src/SaveDialog.vala:127
+msgid "Save Original"
+msgstr "حفظ الأصل"
+
+#: src/SaveDialog.vala:129
+msgid "Save"
+msgstr "حفظ"
+
+#: src/Widgets/VideoPlayer.vala:100
+msgid "Toggle playing"
+msgstr "تشغيل أو إيقاف"
 
 #: data/com.github.mohelm97.screenrecorder.desktop.in:4
 msgid "Simple tool to record the screen using ffmpeg"
-msgstr ""
+msgstr "أداة بسيطة لتسجيل الشاشة بإستخدام ffmpeg"
 
 #: data/com.github.mohelm97.screenrecorder.desktop.in:7
 msgid "mohelm97-screenrecorder"

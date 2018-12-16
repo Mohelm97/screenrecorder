@@ -8,21 +8,102 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.mohelm97.screenrecorder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-12 15:22+0000\n"
+"POT-Creation-Date: 2018-12-16 09:57+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/Application.vala:6
+#: src/Application.vala:27
 msgid "Screen Records"
 msgstr ""
 
-#: data/com.github.mohelm97.screenrecorder.desktop.in:3
+#: src/MainWindow.vala:60
+msgid "Grab the whole screen"
+msgstr ""
+
+#: src/MainWindow.vala:64
+msgid "Select area to grab"
+msgstr ""
+
+#: src/MainWindow.vala:74
+msgid "Grab mouse pointer:"
+msgstr ""
+
+#: src/MainWindow.vala:80
+msgid "Record computer sounds:"
+msgstr ""
+
+#: src/MainWindow.vala:87
+msgid "Record from microphone:"
+msgstr ""
+
+#: src/MainWindow.vala:94
+msgid "Show borders:"
+msgstr ""
+
+#: src/MainWindow.vala:100
+msgid "Delay in seconds:"
+msgstr ""
+
+#: src/MainWindow.vala:105
+msgid "Frame rate:"
+msgstr ""
+
+#: src/MainWindow.vala:110 src/SaveDialog.vala:89
+msgid "Format:"
+msgstr ""
+
+#: src/MainWindow.vala:115
+msgid "Record Screen"
+msgstr ""
+
+#: src/MainWindow.vala:120
+msgid "Stop Recording"
+msgstr ""
+
+#: src/MainWindow.vala:165 data/com.github.mohelm97.screenrecorder.desktop.in:3
 msgid "Screen Recorder"
+msgstr ""
+
+#: src/SaveDialog.vala:69
+msgid "Save record as…"
+msgstr ""
+
+#: src/SaveDialog.vala:73
+msgid "Name:"
+msgstr ""
+
+#: src/SaveDialog.vala:79
+#, c-format
+msgid "Screen record from %s"
+msgstr ""
+
+#: src/SaveDialog.vala:94
+msgid "Folder:"
+msgstr ""
+
+#: src/SaveDialog.vala:104
+msgid "Select Screen Records Folder…"
+msgstr ""
+
+#: src/SaveDialog.vala:125
+msgid "Cancel"
+msgstr ""
+
+#: src/SaveDialog.vala:127
+msgid "Save Original"
+msgstr ""
+
+#: src/SaveDialog.vala:129
+msgid "Save"
+msgstr ""
+
+#: src/Widgets/VideoPlayer.vala:100
+msgid "Toggle playing"
 msgstr ""
 
 #: data/com.github.mohelm97.screenrecorder.desktop.in:4

@@ -1,3 +1,6 @@
 src/Application.vala
+src/MainWindow.vala
+src/SaveDialog.vala
+src/Widgets/VideoPlayer.vala
 data/com.github.mohelm97.screenrecorder.desktop.in
 data/com.github.mohelm97.screenrecorder.appdata.xml.in
