@@ -71,7 +71,7 @@ icon_sizes = ['32', '48', '64', '128']
 
 foreach i : icon_sizes
     install_data(
-        join_paths('data/icons', i, 'mohelm97-screenrecorder.svg'),
+        join_paths('data/icons', i, 'com.github.mohelm97.screenrecorder.svg'),
         install_dir: join_paths(get_option('datadir'), 'icons', 'hicolor', i + 'x' + i, 'apps')
     )
 endforeach
