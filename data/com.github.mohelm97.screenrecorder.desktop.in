@@ -1,7 +1,6 @@
 [Desktop Entry]
 Name=Screen Recorder
 Comment=Simple tool to record the screen using ffmpeg
-Categories=Utility;Education;
 Exec=com.github.mohelm97.screenrecorder
 Icon=com.github.mohelm97.screenrecorder
 Terminal=false

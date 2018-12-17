@@ -17,6 +17,7 @@ icon_res = gnome.compile_resources(
 message ('Listing dependencies')
 
 dependencies = [
+    dependency('gee-0.8'),
     dependency('granite'),
     dependency('gtk+-3.0'),
     dependency('x11'),
