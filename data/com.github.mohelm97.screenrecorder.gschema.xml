@@ -21,7 +21,7 @@
             <default>true</default>
         </key>
         <key name="show-borders" type="b">
-            <default>false</default>
+            <default>true</default>
         </key>
         <key name="delay" type="i">
             <range min="0" max="15"/>
