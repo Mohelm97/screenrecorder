@@ -55,8 +55,11 @@ namespace ScreenRecorder {
 
         construct {
             GLib.Settings settings = ScreenRecorderApp.settings;
-            debug (expected_width.to_string());
-            preview = new VideoPlayer (filepath, expected_width, expected_height, 500);
+            Gdk.Rectangle selection_rect;
+            Gdk.get_default_root_window ().get_frame_extents (out selection_rect);
+            int max_width_height = selection_rect.height*46/100;
+            debug ("Max width/height: %d",max_width_height);
+            preview = new VideoPlayer (filepath, expected_width, expected_height, max_width_height);
 
             var preview_box = new Gtk.Grid ();
             preview_box.halign = Gtk.Align.CENTER;
