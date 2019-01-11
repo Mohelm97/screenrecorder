@@ -31,6 +31,7 @@ namespace ScreenRecorder {
             int start_y,
             int width,
             int height,
+            float scale,
             bool show_mouse,
             bool show_borders,
             bool record_cmp,
@@ -77,6 +78,15 @@ namespace ScreenRecorder {
                 }
                 spawn_args += "-preset";
                 spawn_args += "ultrafast";
+
+                // scale video
+                spawn_args += "-filter:v";
+                var filter = "scale=iw*%.2f:-1".printf (scale).replace (",", ".");
+                if (!is_gif) {
+                  filter += ", crop=iw-mod(iw\\,2):ih-mod(ih\\,2)";
+                }
+                spawn_args += filter;
+
                 spawn_args += filepath;
 
                 debug ("ffmpeg command: %s",string.joinv(" ", spawn_args));

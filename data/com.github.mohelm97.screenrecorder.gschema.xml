@@ -31,6 +31,10 @@
             <range min="1" max="120"/>
             <default>30</default>
         </key>
+        <key name="scale" type="i">
+            <range min="1" max="100"/>
+            <default>100</default>
+        </key>
         <key name="folder-dir" type="s">
             <default>""</default>
         </key>
