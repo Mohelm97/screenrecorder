@@ -81,8 +81,10 @@ namespace ScreenRecorder {
             /// TRANSLATORS: %s represents a timestamp here
             var file_name = _("Screen record from %s").printf (date_time);
 
-            if (this.scale_factor > 1) {
-                file_name += "@%ix".printf (this.scale_factor);
+            var scale = (float) settings.get_int ("scale") / 100;
+            var actual_scale = (int) Math.floor (this.scale_factor * scale);
+            if (actual_scale > 1) {
+                file_name += "@%ix".printf (actual_scale);
             }
 
             name_entry = new Gtk.Entry ();

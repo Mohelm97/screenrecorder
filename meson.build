@@ -16,6 +16,8 @@ icon_res = gnome.compile_resources(
 # Adding deps
 message ('Listing dependencies')
 
+cc = meson.get_compiler('c')
+
 dependencies = [
     dependency('gee-0.8'),
     dependency('granite'),
@@ -24,7 +26,8 @@ dependencies = [
     dependency('gdk-x11-3.0'),
     dependency('gstreamer-1.0'),
     dependency('clutter-gst-3.0'),
-    dependency('clutter-gtk-1.0')
+    dependency('clutter-gtk-1.0'),
+    cc.find_library('m', required : false)
 ]
 
 # Create a new executable, list the files we want to compile, list the dependencies we need, and install
