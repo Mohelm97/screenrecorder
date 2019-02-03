@@ -19,7 +19,7 @@
 * Authored by: Mohammed ALMadhoun <mohelm97@gmail.com>
 */
 
-namespace ScreenRecorder { 
+namespace ScreenRecorder {
     public class MainWindow : Gtk.ApplicationWindow  {
         private enum CaptureType {
             SCREEN,
@@ -111,9 +111,7 @@ namespace ScreenRecorder {
             var scale_label = new Gtk.Label (_("Scale:"));
             scale_label.halign = Gtk.Align.END;
 
-            var scale_spin = new Gtk.SpinButton.with_range (1, 100, 1);
-
-            var scale_units = new Gtk.Label (_("%"));
+            var scale_combobox = new ScaleComboBox ();
 
             var format_label = new Gtk.Label (_("Format:"));
             format_label.halign = Gtk.Align.END;
@@ -149,22 +147,21 @@ namespace ScreenRecorder {
             grid.margin_top = 0;
             grid.row_spacing = 6;
             grid.column_spacing = 12;
-            grid.attach (radio_grid        , 0, 0, 3, 1);
+            grid.attach (radio_grid        , 0, 0, 2, 1);
             grid.attach (record_cmp_label  , 0, 1, 1, 1);
-            grid.attach (record_cmp_switch , 1, 1, 2, 1);
+            grid.attach (record_cmp_switch , 1, 1, 1, 1);
             grid.attach (record_mic_label  , 0, 2, 1, 1);
             grid.attach (record_mic_switch , 1, 2, 1, 1);
             grid.attach (pointer_label     , 0, 3, 1, 1);
-            grid.attach (pointer_switch    , 1, 3, 2, 1);
+            grid.attach (pointer_switch    , 1, 3, 1, 1);
             grid.attach (borders_label     , 0, 4, 1, 1);
-            grid.attach (borders_switch    , 1, 4, 2, 1);
+            grid.attach (borders_switch    , 1, 4, 1, 1);
             grid.attach (delay_label       , 0, 5, 1, 1);
             grid.attach (delay_spin        , 1, 5, 1, 1);
             grid.attach (framerate_label   , 0, 6, 1, 1);
             grid.attach (framerate_spin    , 1, 6, 1, 1);
             grid.attach (scale_label       , 0, 7, 1, 1);
-            grid.attach (scale_spin        , 1, 7, 1, 1);
-            grid.attach (scale_units       , 2, 7, 1, 1);
+            grid.attach (scale_combobox    , 1, 7, 1, 1);
             grid.attach (format_label      , 0, 8, 1, 1);
             grid.attach (format_cmb        , 1, 8, 1, 1);
 
@@ -177,7 +174,7 @@ namespace ScreenRecorder {
             titlebar.show_close_button = true;
             titlebar.has_subtitle = false;
             titlebar.pack_end (mode_switch);
-            
+
             var titlebar_style_context = titlebar.get_style_context ();
             titlebar_style_context.add_class (Gtk.STYLE_CLASS_FLAT);
             //titlebar_style_context.add_class ("default-decoration");
@@ -200,11 +197,11 @@ namespace ScreenRecorder {
             settings.bind ("show-borders", borders_switch, "active", GLib.SettingsBindFlags.DEFAULT);
             settings.bind ("delay", delay_spin, "value", GLib.SettingsBindFlags.DEFAULT);
             settings.bind ("framerate", framerate_spin, "value", GLib.SettingsBindFlags.DEFAULT);
-            settings.bind ("scale", scale_spin, "value", GLib.SettingsBindFlags.DEFAULT);
+            settings.bind ("scale", scale_combobox, "scale", GLib.SettingsBindFlags.DEFAULT);
             settings.bind ("format", format_cmb, "text_value", GLib.SettingsBindFlags.DEFAULT);
             delay = delay_spin.get_value_as_int () * 1000;
             framerate = framerate_spin.get_value_as_int ();
-            scale_percentage = scale_spin.get_value_as_int ();
+            scale_percentage = scale_combobox.scale;
 
             format_cmb.changed.connect (() => {
                 if (format_cmb.get_active_text () == "gif") {
@@ -233,8 +230,8 @@ namespace ScreenRecorder {
                 framerate = framerate_spin.get_value_as_int ();
             });
 
-            scale_spin.value_changed.connect (() => {
-                scale_percentage = scale_spin.get_value_as_int ();
+            scale_combobox.changed.connect (() => {
+                scale_percentage = scale_combobox.scale;
             });
 
             all.toggled.connect (() => {
@@ -339,7 +336,7 @@ namespace ScreenRecorder {
             actions.add (stop_btn);
             stop_btn.show ();
         }
-        
+
         void stop_recording () {
             ffmpegwrapper.stop();
             present ();
