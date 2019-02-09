@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.mohelm97.screenrecorder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-16 09:57+0000\n"
-"PO-Revision-Date: 2018-12-16 10:02+0000\n"
+"POT-Creation-Date: 2019-02-10 01:24+0200\n"
+"PO-Revision-Date: 2019-02-10 01:26+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: ar\n"
@@ -53,7 +53,7 @@ msgstr "تسجيل بعد (بالثواني):"
 msgid "Frame rate:"
 msgstr "عدد الفريمات:"
 
-#: src/MainWindow.vala:110 src/SaveDialog.vala:89
+#: src/MainWindow.vala:110 src/SaveDialog.vala:92
 msgid "Format:"
 msgstr "الصيغة:"
 
@@ -66,39 +66,40 @@ msgid "Stop Recording"
 msgstr "إيقاف التسجيل"
 
 #: src/MainWindow.vala:165 data/com.github.mohelm97.screenrecorder.desktop.in:3
+#: data/com.github.mohelm97.screenrecorder.appdata.xml.in:7
 msgid "Screen Recorder"
 msgstr "مسجل الشاشة"
 
-#: src/SaveDialog.vala:69
+#: src/SaveDialog.vala:72
 msgid "Save record as…"
 msgstr "حفظ التسجيل كـ…"
 
-#: src/SaveDialog.vala:73
+#: src/SaveDialog.vala:76
 msgid "Name:"
 msgstr "الاسم:"
 
-#: src/SaveDialog.vala:79
+#: src/SaveDialog.vala:82
 #, c-format
 msgid "Screen record from %s"
 msgstr "تسجيل شاشة في %s"
 
-#: src/SaveDialog.vala:94
+#: src/SaveDialog.vala:97
 msgid "Folder:"
 msgstr "المجلد:"
 
-#: src/SaveDialog.vala:104
+#: src/SaveDialog.vala:107
 msgid "Select Screen Records Folder…"
 msgstr "أختر المجلد لحفظ التسجيلات…"
 
-#: src/SaveDialog.vala:125
+#: src/SaveDialog.vala:128
 msgid "Cancel"
 msgstr "إلغاء"
 
-#: src/SaveDialog.vala:127
+#: src/SaveDialog.vala:130
 msgid "Save Original"
 msgstr "حفظ الأصل"
 
-#: src/SaveDialog.vala:129
+#: src/SaveDialog.vala:132
 msgid "Save"
 msgstr "حفظ"
 
@@ -110,24 +111,42 @@ msgstr "تشغيل أو إيقاف"
 msgid "Simple tool to record the screen using ffmpeg"
 msgstr "أداة بسيطة لتسجيل الشاشة بإستخدام ffmpeg"
 
-#: data/com.github.mohelm97.screenrecorder.desktop.in:7
-msgid "mohelm97-screenrecorder"
+#: data/com.github.mohelm97.screenrecorder.desktop.in:6
+msgid "com.github.mohelm97.screenrecorder"
 msgstr ""
 
-#: data/com.github.mohelm97.screenrecorder.desktop.in:11
-msgid "Snapshot;Screenshot;Screen;Record"
+#: data/com.github.mohelm97.screenrecorder.desktop.in:10
+msgid "Snapshot;Screenshot;Screen;Record;Recording;"
 msgstr ""
 
-#: data/com.github.mohelm97.screenrecorder.appdata.xml.in:6
-msgid "Your App's Name"
-msgstr ""
+#: data/com.github.mohelm97.screenrecorder.appdata.xml.in:8
+msgid "A simple screen recording app for daily use."
+msgstr "برنامج بسيط لتسجيل الشاشة للإستخدام اليومي."
 
-#: data/com.github.mohelm97.screenrecorder.appdata.xml.in:7
-msgid "A Catchy Tagline"
-msgstr ""
+#: data/com.github.mohelm97.screenrecorder.appdata.xml.in:10
+msgid "A screen recording app using FFmpeg, with a small set of useful features!"
+msgstr "برنامج لتسجيل الشاشة بإستخدام FFmpeg، مع عدد صغير من الميزات!"
 
-#: data/com.github.mohelm97.screenrecorder.appdata.xml.in:9
-msgid ""
-"A quick summary of your app's main selling points and features. Just a "
-"couple sentences per paragraph is best."
+#: data/com.github.mohelm97.screenrecorder.appdata.xml.in:11
+msgid "Features include:"
+msgstr "ميزات مثل:"
+
+#: data/com.github.mohelm97.screenrecorder.appdata.xml.in:13
+msgid "gif recording"
+msgstr "تسجيل صور جيف"
+
+#: data/com.github.mohelm97.screenrecorder.appdata.xml.in:14
+msgid "Recording sound from speakers"
+msgstr "تسجيل من صوت الكمبيوتر"
+
+#: data/com.github.mohelm97.screenrecorder.appdata.xml.in:15
+msgid "Recording sound from microphone"
+msgstr "تسجيل من صوت الميكروفون"
+
+#: data/com.github.mohelm97.screenrecorder.appdata.xml.in:16
+msgid "Available format: MP4, MOV and GIF"
+msgstr "الصيغ المتاحة: MP4, MOV and GIF"
+
+#: data/com.github.mohelm97.screenrecorder.appdata.xml.in:59
+msgid "Mohammed ALMadhoun"
 msgstr ""

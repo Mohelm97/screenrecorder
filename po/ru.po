@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.mohelm97.screenrecorder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-31 21:32+0400\n"
-"PO-Revision-Date: 2019-01-31 21:32+0400\n"
+"POT-Creation-Date: 2019-02-10 01:24+0200\n"
+"PO-Revision-Date: 2019-02-10 01:27+0200\n"
 "Last-Translator: Andrey Kultyapov <camellan@yandex.ru>\n"
 "Language-Team: \n"
 "Language: ru\n"
@@ -18,24 +18,6 @@ msgstr ""
 "X-Generator: Poedit 2.0.6\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-
-#: build/com.github.mohelm97.screenrecorder.desktop:5 src/MainWindow.vala:165
-msgid "Screen Recorder"
-msgstr "Screen Recorder"
-
-#: build/com.github.mohelm97.screenrecorder.desktop:8
-msgid "Simple tool to record the screen using ffmpeg"
-msgstr "Простой инструмент для записи экрана с использованием ffmpeg"
-
-#: build/com.github.mohelm97.screenrecorder.desktop:10
-#| msgid "mohelm97-screenrecorder"
-msgid "com.github.mohelm97.screenrecorder"
-msgstr "com.github.mohelm97.screenrecorder"
-
-#: build/com.github.mohelm97.screenrecorder.desktop:14
-#| msgid "Snapshot;Screenshot;Screen;Record"
-msgid "Snapshot;Screenshot;Screen;Record;Recording;"
-msgstr "Snapshot;Screenshot;Screen;Record;Recording;"
 
 #: src/Application.vala:27
 msgid "Screen Records"
@@ -85,6 +67,11 @@ msgstr "Запись экрана"
 msgid "Stop Recording"
 msgstr "Остановить запись"
 
+#: src/MainWindow.vala:165 data/com.github.mohelm97.screenrecorder.desktop.in:3
+#: data/com.github.mohelm97.screenrecorder.appdata.xml.in:7
+msgid "Screen Recorder"
+msgstr "Screen Recorder"
+
 #: src/SaveDialog.vala:72
 msgid "Save record as…"
 msgstr "Сохранить запись как…"
@@ -93,7 +80,6 @@ msgstr "Сохранить запись как…"
 msgid "Name:"
 msgstr "Имя:"
 
-#. TRANSLATORS: %s represents a timestamp here
 #: src/SaveDialog.vala:82
 #, c-format
 msgid "Screen record from %s"
@@ -122,6 +108,51 @@ msgstr "Сохранить"
 #: src/Widgets/VideoPlayer.vala:100
 msgid "Toggle playing"
 msgstr "Переключить воспроизведение"
+
+#: data/com.github.mohelm97.screenrecorder.desktop.in:4
+msgid "Simple tool to record the screen using ffmpeg"
+msgstr "Простой инструмент для записи экрана с использованием ffmpeg"
+
+#: data/com.github.mohelm97.screenrecorder.desktop.in:6
+msgid "com.github.mohelm97.screenrecorder"
+msgstr "com.github.mohelm97.screenrecorder"
+
+#: data/com.github.mohelm97.screenrecorder.desktop.in:10
+msgid "Snapshot;Screenshot;Screen;Record;Recording;"
+msgstr "Snapshot;Screenshot;Screen;Record;Recording;"
+
+#: data/com.github.mohelm97.screenrecorder.appdata.xml.in:8
+msgid "A simple screen recording app for daily use."
+msgstr ""
+
+#: data/com.github.mohelm97.screenrecorder.appdata.xml.in:10
+msgid ""
+"A screen recording app using FFmpeg, with a small set of useful features!"
+msgstr ""
+
+#: data/com.github.mohelm97.screenrecorder.appdata.xml.in:11
+msgid "Features include:"
+msgstr ""
+
+#: data/com.github.mohelm97.screenrecorder.appdata.xml.in:13
+msgid "gif recording"
+msgstr ""
+
+#: data/com.github.mohelm97.screenrecorder.appdata.xml.in:14
+msgid "Recording sound from speakers"
+msgstr ""
+
+#: data/com.github.mohelm97.screenrecorder.appdata.xml.in:15
+msgid "Recording sound from microphone"
+msgstr ""
+
+#: data/com.github.mohelm97.screenrecorder.appdata.xml.in:16
+msgid "Available format: MP4, MOV and GIF"
+msgstr ""
+
+#: data/com.github.mohelm97.screenrecorder.appdata.xml.in:59
+msgid "Mohammed ALMadhoun"
+msgstr ""
 
 #~ msgid "Your App's Name"
 #~ msgstr "Your App's Name"
