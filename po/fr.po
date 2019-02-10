@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: com.github.mohelm97.screenrecorder\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-02-10 01:24+0200\n"
-"PO-Revision-Date: 2019-02-10 01:27+0200\n"
+"PO-Revision-Date: 2019-02-10 10:51+0100\n"
 "Last-Translator: NathanBnm\n"
 "Language-Team: Français\n"
 "Language: fr\n"
@@ -113,40 +113,40 @@ msgstr "Un simple outil pour enregistrer l'écran en utilisant ffmpeg"
 
 #: data/com.github.mohelm97.screenrecorder.desktop.in:6
 msgid "com.github.mohelm97.screenrecorder"
-msgstr ""
+msgstr "com.github.mohelm97.screenrecorder"
 
 #: data/com.github.mohelm97.screenrecorder.desktop.in:10
 msgid "Snapshot;Screenshot;Screen;Record;Recording;"
-msgstr ""
+msgstr "Instantanné;Capture d'écran;Écran;Enregistrement;"
 
 #: data/com.github.mohelm97.screenrecorder.appdata.xml.in:8
 msgid "A simple screen recording app for daily use."
-msgstr ""
+msgstr "Une simple application d'enregistrement d'écran pour l'usage quotidien."
 
 #: data/com.github.mohelm97.screenrecorder.appdata.xml.in:10
 msgid "A screen recording app using FFmpeg, with a small set of useful features!"
-msgstr ""
+msgstr "Une application d'enregistrement d'écran qui utilise FFmpeg, avec un petit paquet de fonctionnalités utiles !"
 
 #: data/com.github.mohelm97.screenrecorder.appdata.xml.in:11
 msgid "Features include:"
-msgstr ""
+msgstr "Fonctionnalités inclues :"
 
 #: data/com.github.mohelm97.screenrecorder.appdata.xml.in:13
 msgid "gif recording"
-msgstr ""
+msgstr "Enregistrement de GIF"
 
 #: data/com.github.mohelm97.screenrecorder.appdata.xml.in:14
 msgid "Recording sound from speakers"
-msgstr ""
+msgstr "Enregistrement du son des haut-parleurs"
 
 #: data/com.github.mohelm97.screenrecorder.appdata.xml.in:15
 msgid "Recording sound from microphone"
-msgstr ""
+msgstr "Enregistrement du son depuis le microphone"
 
 #: data/com.github.mohelm97.screenrecorder.appdata.xml.in:16
 msgid "Available format: MP4, MOV and GIF"
-msgstr ""
+msgstr "Formats disponibles : MP4, MOV et GIF"
 
 #: data/com.github.mohelm97.screenrecorder.appdata.xml.in:59
 msgid "Mohammed ALMadhoun"
-msgstr ""
+msgstr "Mohammed ALMadhoun"
