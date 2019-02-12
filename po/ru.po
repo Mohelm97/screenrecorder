@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.mohelm97.screenrecorder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-10 01:24+0200\n"
+"POT-Creation-Date: 2019-02-12 06:14+0200\n"
 "PO-Revision-Date: 2019-02-10 01:27+0200\n"
 "Last-Translator: Andrey Kultyapov <camellan@yandex.ru>\n"
 "Language-Team: \n"
@@ -23,51 +23,55 @@ msgstr ""
 msgid "Screen Records"
 msgstr "Записи экрана"
 
-#: src/MainWindow.vala:60
+#: src/MainWindow.vala:61
 msgid "Grab the whole screen"
 msgstr "Захватить весь экран"
 
-#: src/MainWindow.vala:64
+#: src/MainWindow.vala:65
 msgid "Select area to grab"
 msgstr "Выбрать область захвата"
 
-#: src/MainWindow.vala:74
+#: src/MainWindow.vala:75
 msgid "Grab mouse pointer:"
 msgstr "Захватить указатель:"
 
-#: src/MainWindow.vala:80
+#: src/MainWindow.vala:81
 msgid "Record computer sounds:"
 msgstr "Запись звука компьютера:"
 
-#: src/MainWindow.vala:87
+#: src/MainWindow.vala:88
 msgid "Record from microphone:"
 msgstr "Запись с микрофона:"
 
-#: src/MainWindow.vala:94
+#: src/MainWindow.vala:95
 msgid "Show borders:"
 msgstr "Показывать границы:"
 
-#: src/MainWindow.vala:100
+#: src/MainWindow.vala:101
 msgid "Delay in seconds:"
 msgstr "Задержка в секундах:"
 
-#: src/MainWindow.vala:105
+#: src/MainWindow.vala:106
 msgid "Frame rate:"
 msgstr "Частота кадров:"
 
-#: src/MainWindow.vala:110 src/SaveDialog.vala:92
+#: src/MainWindow.vala:111
+msgid "Scale:"
+msgstr ""
+
+#: src/MainWindow.vala:116 src/SaveDialog.vala:87
 msgid "Format:"
 msgstr "Формат:"
 
-#: src/MainWindow.vala:115
+#: src/MainWindow.vala:121
 msgid "Record Screen"
 msgstr "Запись экрана"
 
-#: src/MainWindow.vala:120
+#: src/MainWindow.vala:126
 msgid "Stop Recording"
 msgstr "Остановить запись"
 
-#: src/MainWindow.vala:165 data/com.github.mohelm97.screenrecorder.desktop.in:3
+#: src/MainWindow.vala:173 data/com.github.mohelm97.screenrecorder.desktop.in:3
 #: data/com.github.mohelm97.screenrecorder.appdata.xml.in:7
 msgid "Screen Recorder"
 msgstr "Screen Recorder"
@@ -80,30 +84,30 @@ msgstr "Сохранить запись как…"
 msgid "Name:"
 msgstr "Имя:"
 
-#: src/SaveDialog.vala:82
-#, c-format
-msgid "Screen record from %s"
-msgstr "Запись экрана от %s"
-
-#: src/SaveDialog.vala:97
+#: src/SaveDialog.vala:92
 msgid "Folder:"
 msgstr "Папка:"
 
-#: src/SaveDialog.vala:107
+#: src/SaveDialog.vala:102
 msgid "Select Screen Records Folder…"
 msgstr "Выберите папку…"
 
-#: src/SaveDialog.vala:128
+#: src/SaveDialog.vala:123
 msgid "Cancel"
 msgstr "Отмена"
 
-#: src/SaveDialog.vala:130
+#: src/SaveDialog.vala:125
 msgid "Save Original"
 msgstr "Сохранить оригинал"
 
-#: src/SaveDialog.vala:132
+#: src/SaveDialog.vala:127
 msgid "Save"
 msgstr "Сохранить"
+
+#: src/SaveDialog.vala:193
+#, c-format
+msgid "Screen record from %s"
+msgstr "Запись экрана от %s"
 
 #: src/Widgets/VideoPlayer.vala:100
 msgid "Toggle playing"
