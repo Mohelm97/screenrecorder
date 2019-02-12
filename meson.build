@@ -38,6 +38,7 @@ executable(
     'src/Widgets/SelectionArea.vala',
     'src/Widgets/VideoPlayer.vala',
     'src/Widgets/FormatComboBox.vala',
+    'src/Widgets/ScaleComboBox.vala',
     'src/Utils/KeybindingManager.vala',
     dependencies: dependencies,
     install: true

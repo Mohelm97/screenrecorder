@@ -76,14 +76,9 @@ namespace ScreenRecorder {
             var name_label = new Gtk.Label (_("Name:"));
             name_label.halign = Gtk.Align.END;
 
-            var date_time = new GLib.DateTime.now_local ().format ("%Y-%m-%d %H.%M.%S");
-
-            /// TRANSLATORS: %s represents a timestamp here
-            var file_name = _("Screen record from %s").printf (date_time);
-
-            if (this.scale_factor > 1) {
-                file_name += "@%ix".printf (this.scale_factor);
-            }
+            var recording_scale = (double) settings.get_int ("scale") / 100;
+            var screen_scale = this.scale_factor;
+            var file_name = get_file_name (recording_scale, screen_scale);
 
             name_entry = new Gtk.Entry ();
             name_entry.hexpand = true;
@@ -184,6 +179,31 @@ namespace ScreenRecorder {
 
         private void remove_temp () {
             GLib.FileUtils.remove (filepath);
+        }
+
+        /**
+         * Generate file name
+         * When appropriate include a scale hint that websites can use to 
+         * scale down recordings on higher dpi screens. 
+         */
+        private string get_file_name (double recording_scale, double screen_scale) {
+            var date_time = new GLib.DateTime.now_local ().format ("%Y-%m-%d %H.%M.%S");
+
+            /// TRANSLATORS: %s represents a timestamp here
+            var file_name = _("Screen record from %s").printf (date_time);
+            var file_scale = get_file_scale (recording_scale, screen_scale);
+            if (file_scale > 1) {
+                file_name += "@%ix".printf (file_scale);
+            }
+            return file_name;
+        }
+
+        private int get_file_scale (double recording_scale, double screen_scale) {
+            var file_scale = screen_scale * recording_scale;
+            // never make it seem like images are taken on higher dpi screen
+            file_scale = (file_scale > screen_scale)? screen_scale : file_scale;
+            file_scale = (file_scale < 1)? 1 : file_scale;
+            return (int) file_scale;
         }
     }
 }
