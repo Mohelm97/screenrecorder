@@ -273,6 +273,7 @@ namespace ScreenRecorder {
         }
 
         void capture_screen () {
+            this.iconify ();
             Timeout.add (delay, () => {
                 start_recording (null);
                 return false;
@@ -290,6 +291,7 @@ namespace ScreenRecorder {
             var win = selection_area.get_window ();
 
             selection_area.captured.connect (() => {
+                this.iconify ();
                 selection_area.close ();
                 Timeout.add (delay, () => {
                     start_recording (win);
