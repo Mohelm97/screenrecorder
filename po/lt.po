@@ -1,0 +1,157 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the com.github.mohelm97.screenrecorder package.
+# Moo, 2019.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: com.github.mohelm97.screenrecorder\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-02-12 06:14+0200\n"
+"PO-Revision-Date: 2019-02-18 15:00+0200\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.6\n"
+"Last-Translator: Moo\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Language: lt\n"
+
+#: src/Application.vala:27
+msgid "Screen Records"
+msgstr "Ekrano įrašai"
+
+#: src/MainWindow.vala:61
+msgid "Grab the whole screen"
+msgstr "Įrašinėti visą ekraną"
+
+#: src/MainWindow.vala:65
+msgid "Select area to grab"
+msgstr "Pažymėti sritį, kurią įrašinėti"
+
+#: src/MainWindow.vala:75
+msgid "Grab mouse pointer:"
+msgstr "Įrašinėti pelės žymeklį:"
+
+#: src/MainWindow.vala:81
+msgid "Record computer sounds:"
+msgstr "Įrašinėti kompiuterio garsus:"
+
+#: src/MainWindow.vala:88
+msgid "Record from microphone:"
+msgstr "Įrašinėti iš mikrofono:"
+
+#: src/MainWindow.vala:95
+msgid "Show borders:"
+msgstr "Rodyti kraštus:"
+
+#: src/MainWindow.vala:101
+msgid "Delay in seconds:"
+msgstr "Delsa sekundėmis:"
+
+#: src/MainWindow.vala:106
+msgid "Frame rate:"
+msgstr "Kadrų dažnis:"
+
+#: src/MainWindow.vala:111
+msgid "Scale:"
+msgstr "Mastelis:"
+
+#: src/MainWindow.vala:116 src/SaveDialog.vala:87
+msgid "Format:"
+msgstr "Formatas:"
+
+#: src/MainWindow.vala:121
+msgid "Record Screen"
+msgstr "Įrašinėti ekraną"
+
+#: src/MainWindow.vala:126
+msgid "Stop Recording"
+msgstr "Stabdyti įrašinėjimą"
+
+#: src/MainWindow.vala:173 data/com.github.mohelm97.screenrecorder.desktop.in:3
+#: data/com.github.mohelm97.screenrecorder.appdata.xml.in:7
+msgid "Screen Recorder"
+msgstr "Ekrano rašytuvas"
+
+#: src/SaveDialog.vala:72
+msgid "Save record as…"
+msgstr "Įrašyti ekrano įrašą kaip…"
+
+#: src/SaveDialog.vala:76
+msgid "Name:"
+msgstr "Pavadinimas:"
+
+#: src/SaveDialog.vala:92
+msgid "Folder:"
+msgstr "Aplankas:"
+
+#: src/SaveDialog.vala:102
+msgid "Select Screen Records Folder…"
+msgstr "Pasirinkite ekrano įrašų aplanką…"
+
+#: src/SaveDialog.vala:123
+msgid "Cancel"
+msgstr "Atsisakyti"
+
+#: src/SaveDialog.vala:125
+msgid "Save Original"
+msgstr "Įrašyti pradinį"
+
+#: src/SaveDialog.vala:127
+msgid "Save"
+msgstr "Įrašyti"
+
+#: src/SaveDialog.vala:193
+#, c-format
+msgid "Screen record from %s"
+msgstr "Ekrano įrašas iš %s"
+
+#: src/Widgets/VideoPlayer.vala:100
+msgid "Toggle playing"
+msgstr "Perjungti atkūrimą"
+
+#: data/com.github.mohelm97.screenrecorder.desktop.in:4
+msgid "Simple tool to record the screen using ffmpeg"
+msgstr "Paprastas įrankis, skirtas įrašinėti ekraną, naudojant ffmpeg"
+
+#: data/com.github.mohelm97.screenrecorder.desktop.in:6
+msgid "com.github.mohelm97.screenrecorder"
+msgstr "com.github.mohelm97.screenrecorder"
+
+#: data/com.github.mohelm97.screenrecorder.desktop.in:10
+msgid "Snapshot;Screenshot;Screen;Record;Recording;"
+msgstr "Ekrano kopija;Rašytuvas;Įrašinėjimas;Įrašas;Ekrano įrašas;"
+
+#: data/com.github.mohelm97.screenrecorder.appdata.xml.in:8
+msgid "A simple screen recording app for daily use."
+msgstr "Paprasta ekrano rašytuvo programa kasdieniam naudojimui."
+
+#: data/com.github.mohelm97.screenrecorder.appdata.xml.in:10
+msgid "A screen recording app using FFmpeg, with a small set of useful features!"
+msgstr "Ekrano rašytuvo programa, naudojanti FFmpeg, su nedideliu naudingų ypatybių rinkiniu!"
+
+#: data/com.github.mohelm97.screenrecorder.appdata.xml.in:11
+msgid "Features include:"
+msgstr "Ypatybės:"
+
+#: data/com.github.mohelm97.screenrecorder.appdata.xml.in:13
+msgid "gif recording"
+msgstr "Gif įrašinėjimas"
+
+#: data/com.github.mohelm97.screenrecorder.appdata.xml.in:14
+msgid "Recording sound from speakers"
+msgstr "Garso iš kolonėlių įrašinėjimas"
+
+#: data/com.github.mohelm97.screenrecorder.appdata.xml.in:15
+msgid "Recording sound from microphone"
+msgstr "Garso iš mikrofono įrašinėjimas"
+
+#: data/com.github.mohelm97.screenrecorder.appdata.xml.in:16
+msgid "Available format: MP4, MOV and GIF"
+msgstr "Prieinami formatai: MP4, MOV ir GIF"
+
+#: data/com.github.mohelm97.screenrecorder.appdata.xml.in:59
+msgid "Mohammed ALMadhoun"
+msgstr "Mohammed ALMadhoun"
