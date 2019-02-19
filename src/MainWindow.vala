@@ -127,7 +127,7 @@ namespace ScreenRecorder {
             stop_btn.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
             stop_btn.hexpand = true;
 
-            record_btn.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl><Shift>R"}, "Toggle recording");
+            record_btn.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl><Shift>R"}, _("Toggle recording"));
             stop_btn.tooltip_markup = record_btn.tooltip_markup;
 
             this.set_default (record_btn);
@@ -166,8 +166,8 @@ namespace ScreenRecorder {
             grid.attach (format_cmb        , 1, 8, 1, 1);
 
             var mode_switch = new Granite.ModeSwitch.from_icon_name ("display-brightness-symbolic", "weather-clear-night-symbolic");
-            mode_switch.primary_icon_tooltip_text = ("Light background");
-            mode_switch.secondary_icon_tooltip_text = ("Dark background");
+            mode_switch.primary_icon_tooltip_text = _("Light background");
+            mode_switch.secondary_icon_tooltip_text = _("Dark background");
 
             var titlebar = new Gtk.HeaderBar ();
             titlebar.title = _("Screen Recorder");
