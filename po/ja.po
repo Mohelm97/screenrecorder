@@ -1,0 +1,172 @@
+# Japanese translations for com.github.mohelm97.screenrecorder package.
+# Copyright (C) 2019 THE com.github.mohelm97.screenrecorder'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the com.github.mohelm97.screenrecorder package.
+# Ryo Nakano <ryonakaknock3@gmail.com>, 2019.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: com.github.mohelm97.screenrecorder\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-02-19 21:22+0900\n"
+"PO-Revision-Date: 2019-02-19 21:23+0900\n"
+"Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
+"Language-Team: none\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 2.2.1\n"
+
+#: src/Application.vala:27
+msgid "Screen Records"
+msgstr "画面録画"
+
+#: src/MainWindow.vala:61
+msgid "Grab the whole screen"
+msgstr "画面全体を取得します"
+
+#: src/MainWindow.vala:65
+msgid "Select area to grab"
+msgstr "取得する範囲を選択します"
+
+#: src/MainWindow.vala:75
+msgid "Grab mouse pointer:"
+msgstr "マウスポインター部分を取得:"
+
+#: src/MainWindow.vala:81
+msgid "Record computer sounds:"
+msgstr "コンピューターのサウンドを録音:"
+
+#: src/MainWindow.vala:88
+msgid "Record from microphone:"
+msgstr "マイクから録音:"
+
+#: src/MainWindow.vala:95
+msgid "Show borders:"
+msgstr "録画範囲を表示:"
+
+#: src/MainWindow.vala:101
+msgid "Delay in seconds:"
+msgstr "遅延する秒数:"
+
+#: src/MainWindow.vala:106
+msgid "Frame rate:"
+msgstr "フレームレート:"
+
+#: src/MainWindow.vala:111
+msgid "Scale:"
+msgstr "スケール:"
+
+#: src/MainWindow.vala:116 src/SaveDialog.vala:87
+msgid "Format:"
+msgstr "形式:"
+
+#: src/MainWindow.vala:121
+msgid "Record Screen"
+msgstr "画面を録画"
+
+#: src/MainWindow.vala:126
+msgid "Stop Recording"
+msgstr "録画を終了"
+
+#: src/MainWindow.vala:130
+msgid "Toggle recording"
+msgstr "録画を開始・終了します"
+
+#: src/MainWindow.vala:169
+msgid "Light background"
+msgstr "明るい背景"
+
+#: src/MainWindow.vala:170
+msgid "Dark background"
+msgstr "暗い背景"
+
+#: src/MainWindow.vala:174 data/com.github.mohelm97.screenrecorder.desktop.in:3
+#: data/com.github.mohelm97.screenrecorder.appdata.xml.in:7
+msgid "Screen Recorder"
+msgstr "スクリーンレコーダー"
+
+#: src/SaveDialog.vala:72
+msgid "Save record as…"
+msgstr "名前を付けて録画を保存…"
+
+#: src/SaveDialog.vala:76
+msgid "Name:"
+msgstr "名前:"
+
+#: src/SaveDialog.vala:92
+msgid "Folder:"
+msgstr "フォルダー:"
+
+#: src/SaveDialog.vala:102
+msgid "Select Screen Records Folder…"
+msgstr "画面録画フォルダーを選択…"
+
+#: src/SaveDialog.vala:123
+msgid "Cancel"
+msgstr "キャンセル"
+
+#: src/SaveDialog.vala:125
+msgid "Save Original"
+msgstr "オリジナルを保存"
+
+#: src/SaveDialog.vala:127
+msgid "Save"
+msgstr "保存"
+
+#: src/SaveDialog.vala:193
+#, c-format
+msgid "Screen record from %s"
+msgstr "%s の画面録画"
+
+#: src/Widgets/VideoPlayer.vala:100
+msgid "Toggle playing"
+msgstr "再生・停止を切り替えます"
+
+#: data/com.github.mohelm97.screenrecorder.desktop.in:4
+msgid "Simple tool to record the screen using ffmpeg"
+msgstr "FFmpeg を使用する、画面録画用のシンプルなツール"
+
+#: data/com.github.mohelm97.screenrecorder.desktop.in:6
+msgid "com.github.mohelm97.screenrecorder"
+msgstr "com.github.mohelm97.screenrecorder"
+
+#: data/com.github.mohelm97.screenrecorder.desktop.in:10
+msgid "Snapshot;Screenshot;Screen;Record;Recording;"
+msgstr ""
+"Snapshot;Screenshot;Screen;Record;Recording;スナップショット;スクリーンショッ"
+"ト;画面;スクリーン;録画;"
+
+#: data/com.github.mohelm97.screenrecorder.appdata.xml.in:8
+msgid "A simple screen recording app for daily use."
+msgstr "日常使用に耐えうる、シンプルな画面録画アプリです。"
+
+#: data/com.github.mohelm97.screenrecorder.appdata.xml.in:10
+msgid ""
+"A screen recording app using FFmpeg, with a small set of useful features!"
+msgstr "FFmpeg を使用する画面録画アプリです。便利な機能もそろっています！"
+
+#: data/com.github.mohelm97.screenrecorder.appdata.xml.in:11
+msgid "Features include:"
+msgstr "含まれる機能:"
+
+#: data/com.github.mohelm97.screenrecorder.appdata.xml.in:13
+msgid "gif recording"
+msgstr "GIF 録画"
+
+#: data/com.github.mohelm97.screenrecorder.appdata.xml.in:14
+msgid "Recording sound from speakers"
+msgstr "スピーカーの音を録音"
+
+#: data/com.github.mohelm97.screenrecorder.appdata.xml.in:15
+msgid "Recording sound from microphone"
+msgstr "マイクの音を録音"
+
+#: data/com.github.mohelm97.screenrecorder.appdata.xml.in:16
+msgid "Available format: MP4, MOV and GIF"
+msgstr "利用可能な形式: MP4・MOV・GIF"
+
+#: data/com.github.mohelm97.screenrecorder.appdata.xml.in:59
+msgid "Mohammed ALMadhoun"
+msgstr "Mohammed ALMadhoun"
