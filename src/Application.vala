@@ -44,7 +44,21 @@ namespace ScreenRecorder {
                 }
             });
 
+            var open_records_folder_action = new SimpleAction ("open-records-folder", VariantType.STRING);
+            open_records_folder_action.activate.connect ((parameter) => {
+                if (parameter == null) {
+                    return;
+                }
+                try {
+                    Process.spawn_command_line_async ("xdg-open \"%s\"".printf (settings.get_string ("folder-dir")));
+                    debug("xdg-open \"%s\"".printf (parameter.get_string ()));
+                } catch (SpawnError e) {
+                    GLib.warning (e.message);
+                }
+            });
+
             add_action (quit_action);
+            add_action (open_records_folder_action);
             set_accels_for_action ("app.quit", {"<Control>q"});
         }
 

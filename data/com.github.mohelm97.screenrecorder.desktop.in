@@ -7,3 +7,4 @@ Terminal=false
 Type=Application
 Categories=GTK;GNOME;Utility;AudioVideo;Video;Graphics;
 Keywords=Snapshot;Screenshot;Screen;Record;Recording;
+X-GNOME-UsesNotifications=true

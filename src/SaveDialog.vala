@@ -46,7 +46,8 @@ namespace ScreenRecorder {
                 transient_for: parent,
                 filepath: filepath,
                 expected_width: expected_width,
-                expected_height: expected_height
+                expected_height: expected_height,
+                application: parent.application
             );
 
             response.connect (manage_response);
@@ -100,7 +101,7 @@ namespace ScreenRecorder {
             ScreenRecorderApp.create_dir_if_missing (folder_dir);
 
             var location = new Gtk.FileChooserButton (_("Select Screen Records Folder…"), Gtk.FileChooserAction.SELECT_FOLDER);
-            location.set_current_folder (folder_dir);
+            location.set_filename (folder_dir);
 
             var grid = new Gtk.Grid ();
             grid.margin = 6;
@@ -131,11 +132,8 @@ namespace ScreenRecorder {
             format_cmb.sensitive = false;
             save_original_btn.sensitive = (format_cmb.get_active_text () != "gif");
             location.selection_changed.connect (() => {
-                SList<string> uris = location.get_uris ();
-                foreach (unowned string uri in uris) {
-                    settings.set_string ("folder-dir", Uri.unescape_string (uri.substring (7, -1)));
-                    folder_dir = settings.get_string ("folder-dir");
-                }
+                settings.set_string ("folder-dir", location.get_filename ());
+                folder_dir = settings.get_string ("folder-dir");
             });
 
             key_press_event.connect ((e) => {
@@ -170,6 +168,10 @@ namespace ScreenRecorder {
                     sensitive = true;
                     save_btn.set_image (null);
                     debug ("Render done");
+                    var notification = new Notification (_("Rendering went awesome"));
+                    notification.set_body (_("Click here to open the records folder"));
+                    notification.set_default_action ("app.open-records-folder('%s')".printf(folder_dir));
+                    this.application.send_notification (null, notification);
                     close ();
                 });
             } else {
