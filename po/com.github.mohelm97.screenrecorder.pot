@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.mohelm97.screenrecorder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-12 06:14+0200\n"
+"POT-Creation-Date: 2019-03-13 01:37+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -57,7 +57,7 @@ msgstr ""
 msgid "Scale:"
 msgstr ""
 
-#: src/MainWindow.vala:116 src/SaveDialog.vala:87
+#: src/MainWindow.vala:116 src/SaveDialog.vala:88
 msgid "Format:"
 msgstr ""
 
@@ -69,40 +69,60 @@ msgstr ""
 msgid "Stop Recording"
 msgstr ""
 
-#: src/MainWindow.vala:173 data/com.github.mohelm97.screenrecorder.desktop.in:3
+#: src/MainWindow.vala:130
+msgid "Toggle recording"
+msgstr ""
+
+#: src/MainWindow.vala:169
+msgid "Light background"
+msgstr ""
+
+#: src/MainWindow.vala:170
+msgid "Dark background"
+msgstr ""
+
+#: src/MainWindow.vala:174 data/com.github.mohelm97.screenrecorder.desktop.in:3
 #: data/com.github.mohelm97.screenrecorder.appdata.xml.in:7
 msgid "Screen Recorder"
 msgstr ""
 
-#: src/SaveDialog.vala:72
+#: src/SaveDialog.vala:73
 msgid "Save record as…"
 msgstr ""
 
-#: src/SaveDialog.vala:76
+#: src/SaveDialog.vala:77
 msgid "Name:"
 msgstr ""
 
-#: src/SaveDialog.vala:92
+#: src/SaveDialog.vala:93
 msgid "Folder:"
 msgstr ""
 
-#: src/SaveDialog.vala:102
+#: src/SaveDialog.vala:103
 msgid "Select Screen Records Folder…"
 msgstr ""
 
-#: src/SaveDialog.vala:123
+#: src/SaveDialog.vala:124
 msgid "Cancel"
 msgstr ""
 
-#: src/SaveDialog.vala:125
+#: src/SaveDialog.vala:126
 msgid "Save Original"
 msgstr ""
 
-#: src/SaveDialog.vala:127
+#: src/SaveDialog.vala:128
 msgid "Save"
 msgstr ""
 
-#: src/SaveDialog.vala:193
+#: src/SaveDialog.vala:171
+msgid "Rendering went awesome"
+msgstr ""
+
+#: src/SaveDialog.vala:172
+msgid "Click here to open the records folder"
+msgstr ""
+
+#: src/SaveDialog.vala:195
 #, c-format
 msgid "Screen record from %s"
 msgstr ""

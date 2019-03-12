@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.mohelm97.screenrecorder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-12 06:14+0200\n"
-"PO-Revision-Date: 2019-02-12 06:15+0200\n"
+"POT-Creation-Date: 2019-03-13 01:37+0200\n"
+"PO-Revision-Date: 2019-03-13 01:39+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: ar\n"
@@ -57,7 +57,7 @@ msgstr "عدد الفريمات:"
 msgid "Scale:"
 msgstr "المقياس:"
 
-#: src/MainWindow.vala:116 src/SaveDialog.vala:87
+#: src/MainWindow.vala:116 src/SaveDialog.vala:88
 msgid "Format:"
 msgstr "الصيغة:"
 
@@ -69,40 +69,60 @@ msgstr "تسجيل الشاشة"
 msgid "Stop Recording"
 msgstr "إيقاف التسجيل"
 
-#: src/MainWindow.vala:173 data/com.github.mohelm97.screenrecorder.desktop.in:3
+#: src/MainWindow.vala:130
+msgid "Toggle recording"
+msgstr "بدأ أو إيقاف التسجيل"
+
+#: src/MainWindow.vala:169
+msgid "Light background"
+msgstr "خلفية فاتحة"
+
+#: src/MainWindow.vala:170
+msgid "Dark background"
+msgstr "خلفية غامقة"
+
+#: src/MainWindow.vala:174 data/com.github.mohelm97.screenrecorder.desktop.in:3
 #: data/com.github.mohelm97.screenrecorder.appdata.xml.in:7
 msgid "Screen Recorder"
 msgstr "مسجل الشاشة"
 
-#: src/SaveDialog.vala:72
+#: src/SaveDialog.vala:73
 msgid "Save record as…"
 msgstr "حفظ التسجيل كـ…"
 
-#: src/SaveDialog.vala:76
+#: src/SaveDialog.vala:77
 msgid "Name:"
 msgstr "الاسم:"
 
-#: src/SaveDialog.vala:92
+#: src/SaveDialog.vala:93
 msgid "Folder:"
 msgstr "المجلد:"
 
-#: src/SaveDialog.vala:102
+#: src/SaveDialog.vala:103
 msgid "Select Screen Records Folder…"
 msgstr "أختر المجلد لحفظ التسجيلات…"
 
-#: src/SaveDialog.vala:123
+#: src/SaveDialog.vala:124
 msgid "Cancel"
 msgstr "إلغاء"
 
-#: src/SaveDialog.vala:125
+#: src/SaveDialog.vala:126
 msgid "Save Original"
 msgstr "حفظ الأصل"
 
-#: src/SaveDialog.vala:127
+#: src/SaveDialog.vala:128
 msgid "Save"
 msgstr "حفظ"
 
-#: src/SaveDialog.vala:193
+#: src/SaveDialog.vala:171
+msgid "Rendering went awesome"
+msgstr "تمت عملية المعالجة"
+
+#: src/SaveDialog.vala:172
+msgid "Click here to open the records folder"
+msgstr "إضغط هنا لفتح مجلد التسجيلات"
+
+#: src/SaveDialog.vala:195
 #, c-format
 msgid "Screen record from %s"
 msgstr "تسجيل شاشة في %s"

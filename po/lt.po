@@ -7,16 +7,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.mohelm97.screenrecorder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-12 06:14+0200\n"
+"POT-Creation-Date: 2019-03-13 01:37+0200\n"
 "PO-Revision-Date: 2019-02-18 15:00+0200\n"
+"Last-Translator: Moo\n"
 "Language-Team: \n"
+"Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.0.6\n"
-"Last-Translator: Moo\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"Language: lt\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n"
+"%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: src/Application.vala:27
 msgid "Screen Records"
@@ -58,7 +59,7 @@ msgstr "Kadrų dažnis:"
 msgid "Scale:"
 msgstr "Mastelis:"
 
-#: src/MainWindow.vala:116 src/SaveDialog.vala:87
+#: src/MainWindow.vala:116 src/SaveDialog.vala:88
 msgid "Format:"
 msgstr "Formatas:"
 
@@ -70,40 +71,61 @@ msgstr "Įrašinėti ekraną"
 msgid "Stop Recording"
 msgstr "Stabdyti įrašinėjimą"
 
-#: src/MainWindow.vala:173 data/com.github.mohelm97.screenrecorder.desktop.in:3
+#: src/MainWindow.vala:130
+#, fuzzy
+msgid "Toggle recording"
+msgstr "Gif įrašinėjimas"
+
+#: src/MainWindow.vala:169
+msgid "Light background"
+msgstr ""
+
+#: src/MainWindow.vala:170
+msgid "Dark background"
+msgstr ""
+
+#: src/MainWindow.vala:174 data/com.github.mohelm97.screenrecorder.desktop.in:3
 #: data/com.github.mohelm97.screenrecorder.appdata.xml.in:7
 msgid "Screen Recorder"
 msgstr "Ekrano rašytuvas"
 
-#: src/SaveDialog.vala:72
+#: src/SaveDialog.vala:73
 msgid "Save record as…"
 msgstr "Įrašyti ekrano įrašą kaip…"
 
-#: src/SaveDialog.vala:76
+#: src/SaveDialog.vala:77
 msgid "Name:"
 msgstr "Pavadinimas:"
 
-#: src/SaveDialog.vala:92
+#: src/SaveDialog.vala:93
 msgid "Folder:"
 msgstr "Aplankas:"
 
-#: src/SaveDialog.vala:102
+#: src/SaveDialog.vala:103
 msgid "Select Screen Records Folder…"
 msgstr "Pasirinkite ekrano įrašų aplanką…"
 
-#: src/SaveDialog.vala:123
+#: src/SaveDialog.vala:124
 msgid "Cancel"
 msgstr "Atsisakyti"
 
-#: src/SaveDialog.vala:125
+#: src/SaveDialog.vala:126
 msgid "Save Original"
 msgstr "Įrašyti pradinį"
 
-#: src/SaveDialog.vala:127
+#: src/SaveDialog.vala:128
 msgid "Save"
 msgstr "Įrašyti"
 
-#: src/SaveDialog.vala:193
+#: src/SaveDialog.vala:171
+msgid "Rendering went awesome"
+msgstr ""
+
+#: src/SaveDialog.vala:172
+msgid "Click here to open the records folder"
+msgstr ""
+
+#: src/SaveDialog.vala:195
 #, c-format
 msgid "Screen record from %s"
 msgstr "Ekrano įrašas iš %s"
@@ -129,8 +151,11 @@ msgid "A simple screen recording app for daily use."
 msgstr "Paprasta ekrano rašytuvo programa kasdieniam naudojimui."
 
 #: data/com.github.mohelm97.screenrecorder.appdata.xml.in:10
-msgid "A screen recording app using FFmpeg, with a small set of useful features!"
-msgstr "Ekrano rašytuvo programa, naudojanti FFmpeg, su nedideliu naudingų ypatybių rinkiniu!"
+msgid ""
+"A screen recording app using FFmpeg, with a small set of useful features!"
+msgstr ""
+"Ekrano rašytuvo programa, naudojanti FFmpeg, su nedideliu naudingų ypatybių "
+"rinkiniu!"
 
 #: data/com.github.mohelm97.screenrecorder.appdata.xml.in:11
 msgid "Features include:"
