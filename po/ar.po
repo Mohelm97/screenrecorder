@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.mohelm97.screenrecorder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-13 01:37+0200\n"
-"PO-Revision-Date: 2019-03-13 01:39+0200\n"
+"POT-Creation-Date: 2019-03-13 01:49+0200\n"
+"PO-Revision-Date: 2019-03-13 01:50+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: ar\n"
@@ -171,6 +171,18 @@ msgstr "تسجيل من صوت الميكروفون"
 msgid "Available format: MP4, MOV and GIF"
 msgstr "الصيغ المتاحة: MP4, MOV and GIF"
 
-#: data/com.github.mohelm97.screenrecorder.appdata.xml.in:59
+#: data/com.github.mohelm97.screenrecorder.appdata.xml.in:22
+msgid "Add scaling option"
+msgstr "إضافة خاصية التحجيم"
+
+#: data/com.github.mohelm97.screenrecorder.appdata.xml.in:23
+msgid "Minor bug fixes"
+msgstr "اصلاح اخطأ فرعية"
+
+#: data/com.github.mohelm97.screenrecorder.appdata.xml.in:24
+msgid "New translations"
+msgstr "إضافة ترجمات جديدة"
+
+#: data/com.github.mohelm97.screenrecorder.appdata.xml.in:69
 msgid "Mohammed ALMadhoun"
 msgstr ""

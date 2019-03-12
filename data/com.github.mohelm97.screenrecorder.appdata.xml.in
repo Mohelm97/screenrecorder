@@ -16,6 +16,16 @@
       <li>Available format: MP4, MOV and GIF</li>
     </ul>
   </description>
+  <releases>
+    <release version="0.2" date="2019-03-13" urgency="medium">
+        <description>
+            <p>Add scaling option</p>
+            <p>Minor bug fixes</p>
+            <p>New translations</p>
+        </description>
+    </release>
+    <release version="0.1" date="2018-12-17" />
+  </releases>
 
   <screenshots>
     <screenshot type="default">

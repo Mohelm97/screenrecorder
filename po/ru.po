@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.mohelm97.screenrecorder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-13 01:37+0200\n"
+"POT-Creation-Date: 2019-03-13 01:49+0200\n"
 "PO-Revision-Date: 2019-02-10 01:27+0200\n"
 "Last-Translator: Andrey Kultyapov <camellan@yandex.ru>\n"
 "Language-Team: \n"
@@ -175,7 +175,19 @@ msgstr ""
 msgid "Available format: MP4, MOV and GIF"
 msgstr ""
 
-#: data/com.github.mohelm97.screenrecorder.appdata.xml.in:59
+#: data/com.github.mohelm97.screenrecorder.appdata.xml.in:22
+msgid "Add scaling option"
+msgstr ""
+
+#: data/com.github.mohelm97.screenrecorder.appdata.xml.in:23
+msgid "Minor bug fixes"
+msgstr ""
+
+#: data/com.github.mohelm97.screenrecorder.appdata.xml.in:24
+msgid "New translations"
+msgstr ""
+
+#: data/com.github.mohelm97.screenrecorder.appdata.xml.in:69
 msgid "Mohammed ALMadhoun"
 msgstr ""
 
