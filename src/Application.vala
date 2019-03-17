@@ -50,8 +50,9 @@ namespace ScreenRecorder {
                     return;
                 }
                 try {
-                    Process.spawn_command_line_async ("xdg-open \"%s\"".printf (settings.get_string ("folder-dir")));
-                    debug("xdg-open \"%s\"".printf (parameter.get_string ()));
+                    File records_folder = File.new_for_path (settings.get_string ("folder-dir"));
+                    AppInfo.launch_default_for_uri (records_folder.get_uri (), null);
+                    debug("launch_default_for_uri %s".printf (parameter.get_string ()));
                 } catch (SpawnError e) {
                     GLib.warning (e.message);
                 }
