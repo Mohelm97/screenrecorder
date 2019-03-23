@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.mohelm97.screenrecorder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-13 01:49+0200\n"
+"POT-Creation-Date: 2019-03-23 19:13+0100\n"
 "PO-Revision-Date: 2019-03-13 01:50+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -148,7 +148,8 @@ msgid "A simple screen recording app for daily use."
 msgstr "برنامج بسيط لتسجيل الشاشة للإستخدام اليومي."
 
 #: data/com.github.mohelm97.screenrecorder.appdata.xml.in:10
-msgid "A screen recording app using FFmpeg, with a small set of useful features!"
+msgid ""
+"A screen recording app using FFmpeg, with a small set of useful features!"
 msgstr "برنامج لتسجيل الشاشة بإستخدام FFmpeg، مع عدد صغير من الميزات!"
 
 #: data/com.github.mohelm97.screenrecorder.appdata.xml.in:11
