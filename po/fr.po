@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.mohelm97.screenrecorder\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-13 01:49+0200\n"
+"POT-Creation-Date: 2019-03-23 19:13+0100\n"
 "PO-Revision-Date: 2019-02-10 10:51+0100\n"
 "Last-Translator: NathanBnm\n"
 "Language-Team: Français\n"
@@ -51,11 +51,11 @@ msgstr "Délai en secondes :"
 
 #: src/MainWindow.vala:106
 msgid "Frame rate:"
-msgstr "Images par seconde"
+msgstr "Images par seconde :"
 
 #: src/MainWindow.vala:111
 msgid "Scale:"
-msgstr ""
+msgstr "Échelle :"
 
 #: src/MainWindow.vala:116 src/SaveDialog.vala:88
 msgid "Format:"
@@ -70,22 +70,21 @@ msgid "Stop Recording"
 msgstr "Arrêter l'enregistrement"
 
 #: src/MainWindow.vala:130
-#, fuzzy
 msgid "Toggle recording"
-msgstr "Enregistrement de GIF"
+msgstr "Basculer l'enregistrement"
 
 #: src/MainWindow.vala:169
 msgid "Light background"
-msgstr ""
+msgstr "Thème clair"
 
 #: src/MainWindow.vala:170
 msgid "Dark background"
-msgstr ""
+msgstr "Thème sombre"
 
 #: src/MainWindow.vala:174 data/com.github.mohelm97.screenrecorder.desktop.in:3
 #: data/com.github.mohelm97.screenrecorder.appdata.xml.in:7
 msgid "Screen Recorder"
-msgstr "Screen Recorder"
+msgstr "Enregistreur d'écran"
 
 #: src/SaveDialog.vala:73
 msgid "Save record as…"
@@ -101,7 +100,7 @@ msgstr "Dossier :"
 
 #: src/SaveDialog.vala:103
 msgid "Select Screen Records Folder…"
-msgstr "Séléctionner le dossier des enregistrements d'écran…"
+msgstr "Sélectionner le dossier des enregistrements d'écran…"
 
 #: src/SaveDialog.vala:124
 msgid "Cancel"
@@ -117,11 +116,11 @@ msgstr "Enregistrer"
 
 #: src/SaveDialog.vala:171
 msgid "Rendering went awesome"
-msgstr ""
+msgstr "Le rendu s'est très bien passé"
 
 #: src/SaveDialog.vala:172
 msgid "Click here to open the records folder"
-msgstr ""
+msgstr "Cliquez ici pour ouvrir le dossier des enregistrements"
 
 #: src/SaveDialog.vala:195
 #, c-format
@@ -130,11 +129,11 @@ msgstr "Enregistrement d'écran depuis %s"
 
 #: src/Widgets/VideoPlayer.vala:100
 msgid "Toggle playing"
-msgstr "Basculer en mode lecture"
+msgstr "Lecture / Pause"
 
 #: data/com.github.mohelm97.screenrecorder.desktop.in:4
 msgid "Simple tool to record the screen using ffmpeg"
-msgstr "Un simple outil pour enregistrer l'écran en utilisant ffmpeg"
+msgstr "Un simple outil utilisant ffmpeg pour enregistrer l'écran"
 
 #: data/com.github.mohelm97.screenrecorder.desktop.in:6
 msgid "com.github.mohelm97.screenrecorder"
@@ -178,15 +177,15 @@ msgstr "Formats disponibles : MP4, MOV et GIF"
 
 #: data/com.github.mohelm97.screenrecorder.appdata.xml.in:22
 msgid "Add scaling option"
-msgstr ""
+msgstr "Ajout des options d'échelle"
 
 #: data/com.github.mohelm97.screenrecorder.appdata.xml.in:23
 msgid "Minor bug fixes"
-msgstr ""
+msgstr "Corrections de bugs mineures"
 
 #: data/com.github.mohelm97.screenrecorder.appdata.xml.in:24
 msgid "New translations"
-msgstr ""
+msgstr "Nouvelles traductions"
 
 #: data/com.github.mohelm97.screenrecorder.appdata.xml.in:69
 msgid "Mohammed ALMadhoun"
