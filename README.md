@@ -2,7 +2,9 @@
 
 A thin UI layer around FFmpeg for recording your screen.
 
-Right now this is just a sketch, sooo don't look at the code :D
+<p align="left">
+  <a href="https://appcenter.elementary.io/com.github.mohelm97.screenrecorder"><img src="https://appcenter.elementary.io/badge.svg" alt="Get it on AppCenter" /></a>
+</p>
 
 <p align="center"><img src="data/screenshot_1.png" width="385"> <img src="data/screenshot_2.png" width="470"></p>
 
