@@ -38,6 +38,7 @@ namespace ScreenRecorder {
         private Gtk.ComboBoxText format_cmb;
 
         private bool recording = false;
+        private bool save_dialog_present = false;
         private int delay;
         private int framerate;
         private int scale_percentage;
@@ -267,7 +268,7 @@ namespace ScreenRecorder {
             manager.bind("<Ctrl><Shift>R", () => {
                 if (recording) {
                     stop_recording ();
-                } else {
+                } else if (!save_dialog_present) {
                     record_btn.clicked ();
                 }
             });
@@ -344,10 +345,14 @@ namespace ScreenRecorder {
             ffmpegwrapper.stop();
             present ();
             var save_dialog = new SaveDialog (tmpfilepath, this, last_recording_width, last_recording_height);
+            save_dialog_present = true;
             // set keep above to true just to present the window when we stop recording (Don't know why present () didn't work).
             save_dialog.set_keep_above (true);
             save_dialog.show_all ();
             save_dialog.set_keep_above (false);
+            save_dialog.close.connect (() => {
+                save_dialog_present = false;
+            });
             grid.set_sensitive (true);
             recording = false;
             actions.remove (stop_btn);
