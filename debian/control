@@ -15,6 +15,6 @@ Standards-Version: 3.9.3
 
 Package: com.github.mohelm97.screenrecorder
 Architecture: any
-Depends: ffmpeg, ${misc:Depends}, ${shlibs:Depends}
+Depends: screenkey, ffmpeg, ${misc:Depends}, ${shlibs:Depends}
 Description: Simple screen recorder
  A screen recorder with the ability to produce gifs, mp4, mov, and recording sounds from computer and microphone using ffmpeg.
