@@ -36,6 +36,7 @@ namespace ScreenRecorder {
         private Gtk.Switch pointer_switch;
         private Gtk.Switch borders_switch;
         private Gtk.ComboBoxText format_cmb;
+        private Subprocess screenkey_process;
 
         private bool recording = false;
         private bool save_dialog_present = false;
@@ -339,10 +340,30 @@ namespace ScreenRecorder {
             actions.remove (record_btn);
             actions.add (stop_btn);
             stop_btn.show ();
+
+            screenkeys (selection_rect);
+        }
+
+        void screenkeys (Gdk.Rectangle area) {
+            try {
+                string[] command = {
+                    "screenkey",
+                    "--no-detach",
+                    "-g",
+                    "%ix%i+%i+%i".printf(area.width, area.height, area.x, area.y)
+                };
+                screenkey_process = new Subprocess.newv (command, SubprocessFlags.NONE);
+            } catch (Error e) {
+                debug ("Issue running screenkey: '%s'", e.message);
+            }
         }
 
         void stop_recording () {
             ffmpegwrapper.stop();
+            if (screenkey_process != null) {
+                screenkey_process.force_exit ();
+            }
+
             present ();
             var save_dialog = new SaveDialog (tmpfilepath, this, last_recording_width, last_recording_height);
             save_dialog_present = true;
