@@ -90,7 +90,7 @@ namespace ScreenRecorder {
                 spawn_args += filepath;
 
                 debug ("ffmpeg command: %s",string.joinv(" ", spawn_args));
-                SubprocessLauncher launcher = new SubprocessLauncher (SubprocessFlags.STDERR_PIPE);
+                SubprocessLauncher launcher = new SubprocessLauncher (SubprocessFlags.STDERR_SILENCE);
                 subprocess = launcher.spawnv (spawn_args);
             } catch (Error e) {
                 GLib.warning (e.message);
