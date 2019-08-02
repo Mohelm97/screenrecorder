@@ -147,7 +147,7 @@ namespace ScreenRecorder {
                     };
                 }
                 debug ("ffmpeg command: %s",string.joinv(" ", spawn_args));
-                SubprocessLauncher launcher = new SubprocessLauncher (SubprocessFlags.STDERR_PIPE);
+                SubprocessLauncher launcher = new SubprocessLauncher (SubprocessFlags.STDERR_SILENCE);
                 Subprocess? render_subprocess = launcher.spawnv (spawn_args);
                 return_value = yield render_subprocess.wait_check_async ();
             } catch (Error e) {
