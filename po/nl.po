@@ -1,0 +1,189 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the com.github.mohelm97.screenrecorder package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: com.github.mohelm97.screenrecorder\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-03-23 19:13+0100\n"
+"PO-Revision-Date: 2019-11-07 20:20+0100\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2.4\n"
+"Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: nl\n"
+
+#: src/Application.vala:27
+msgid "Screen Records"
+msgstr "Schermopname"
+
+#: src/MainWindow.vala:61
+msgid "Grab the whole screen"
+msgstr "Volledig scherm vastleggen"
+
+#: src/MainWindow.vala:65
+msgid "Select area to grab"
+msgstr "Gebied selecteren"
+
+#: src/MainWindow.vala:75
+msgid "Grab mouse pointer:"
+msgstr "Cursor vastleggen:"
+
+#: src/MainWindow.vala:81
+msgid "Record computer sounds:"
+msgstr "Computergeluiden opnemen:"
+
+#: src/MainWindow.vala:88
+msgid "Record from microphone:"
+msgstr "Microfoonopname:"
+
+#: src/MainWindow.vala:95
+msgid "Show borders:"
+msgstr "Randen tonen:"
+
+#: src/MainWindow.vala:101
+msgid "Delay in seconds:"
+msgstr "Vertraging (in seconden):"
+
+#: src/MainWindow.vala:106
+msgid "Frame rate:"
+msgstr "Framerate:"
+
+#: src/MainWindow.vala:111
+msgid "Scale:"
+msgstr "Schaal:"
+
+#: src/MainWindow.vala:116 src/SaveDialog.vala:88
+msgid "Format:"
+msgstr "Formaat:"
+
+#: src/MainWindow.vala:121
+msgid "Record Screen"
+msgstr "Scherm opnemen"
+
+#: src/MainWindow.vala:126
+msgid "Stop Recording"
+msgstr "Opname stoppen"
+
+#: src/MainWindow.vala:130
+msgid "Toggle recording"
+msgstr "Opname starten/stoppen"
+
+#: src/MainWindow.vala:169
+msgid "Light background"
+msgstr "Licht thema"
+
+#: src/MainWindow.vala:170
+msgid "Dark background"
+msgstr "Donker thema"
+
+#: src/MainWindow.vala:174 data/com.github.mohelm97.screenrecorder.desktop.in:3
+#: data/com.github.mohelm97.screenrecorder.appdata.xml.in:7
+msgid "Screen Recorder"
+msgstr "Schermopname"
+
+#: src/SaveDialog.vala:73
+msgid "Save record as…"
+msgstr "Opname opslaan als…"
+
+#: src/SaveDialog.vala:77
+msgid "Name:"
+msgstr "Naam:"
+
+#: src/SaveDialog.vala:93
+msgid "Folder:"
+msgstr "Map:"
+
+#: src/SaveDialog.vala:103
+msgid "Select Screen Records Folder…"
+msgstr "Kies schermopnamemap…"
+
+#: src/SaveDialog.vala:124
+msgid "Cancel"
+msgstr "Annuleren"
+
+#: src/SaveDialog.vala:126
+msgid "Save Original"
+msgstr "Origineel oslaan"
+
+#: src/SaveDialog.vala:128
+msgid "Save"
+msgstr "Opslaan"
+
+#: src/SaveDialog.vala:171
+msgid "Rendering went awesome"
+msgstr "Het renderen is fantastisch verlopen"
+
+#: src/SaveDialog.vala:172
+msgid "Click here to open the records folder"
+msgstr "Klik hier om de opnamemap te openen"
+
+#: src/SaveDialog.vala:195
+#, c-format
+msgid "Screen record from %s"
+msgstr "Schermopname va %s"
+
+#: src/Widgets/VideoPlayer.vala:100
+msgid "Toggle playing"
+msgstr "Afspelen starten/stoppen"
+
+#: data/com.github.mohelm97.screenrecorder.desktop.in:4
+msgid "Simple tool to record the screen using ffmpeg"
+msgstr "Eenvoudige toepassing voor schermopnames middels ffmpeg"
+
+#: data/com.github.mohelm97.screenrecorder.desktop.in:6
+msgid "com.github.mohelm97.screenrecorder"
+msgstr "com.github.mohelm97.screenrecorder"
+
+#: data/com.github.mohelm97.screenrecorder.desktop.in:10
+msgid "Snapshot;Screenshot;Screen;Record;Recording;"
+msgstr "snapshot;schermfoto;scherm;opname;opnemen;"
+
+#: data/com.github.mohelm97.screenrecorder.appdata.xml.in:8
+msgid "A simple screen recording app for daily use."
+msgstr "Een eenvoudige schermopnametoepassing voor dagelijks gebruik."
+
+#: data/com.github.mohelm97.screenrecorder.appdata.xml.in:10
+msgid "A screen recording app using FFmpeg, with a small set of useful features!"
+msgstr "Eenvoudige toepassing voor schermopnames middels ffmpeg met een aantal handige functies!"
+
+#: data/com.github.mohelm97.screenrecorder.appdata.xml.in:11
+msgid "Features include:"
+msgstr "Het bevat de volgende mogelijkheden:"
+
+#: data/com.github.mohelm97.screenrecorder.appdata.xml.in:13
+msgid "gif recording"
+msgstr "gif-opname"
+
+#: data/com.github.mohelm97.screenrecorder.appdata.xml.in:14
+msgid "Recording sound from speakers"
+msgstr "Geluid opnemen van luidsprekers"
+
+#: data/com.github.mohelm97.screenrecorder.appdata.xml.in:15
+msgid "Recording sound from microphone"
+msgstr "Geluid opnemen van microfoon"
+
+#: data/com.github.mohelm97.screenrecorder.appdata.xml.in:16
+msgid "Available format: MP4, MOV and GIF"
+msgstr "Beschikbare formaten: MP4, MOV en GIF"
+
+#: data/com.github.mohelm97.screenrecorder.appdata.xml.in:22
+msgid "Add scaling option"
+msgstr "Schaaloptie toegevoegd"
+
+#: data/com.github.mohelm97.screenrecorder.appdata.xml.in:23
+msgid "Minor bug fixes"
+msgstr "Kleine fouten opgelost"
+
+#: data/com.github.mohelm97.screenrecorder.appdata.xml.in:24
+msgid "New translations"
+msgstr "Nieuwe vertalingen"
+
+#: data/com.github.mohelm97.screenrecorder.appdata.xml.in:69
+msgid "Mohammed ALMadhoun"
+msgstr "Mohammed ALMadhoun"
