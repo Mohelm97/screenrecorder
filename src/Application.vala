@@ -53,7 +53,7 @@ namespace ScreenRecorder {
                     File records_folder = File.new_for_path (settings.get_string ("folder-dir"));
                     AppInfo.launch_default_for_uri (records_folder.get_uri (), null);
                     debug("launch_default_for_uri %s".printf (parameter.get_string ()));
-                } catch (SpawnError e) {
+                } catch (Error e) {
                     GLib.warning (e.message);
                 }
             });

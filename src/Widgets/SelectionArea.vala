@@ -38,8 +38,10 @@ namespace Screenshot.Widgets {
             set_skip_pager_hint (true);
             set_keep_above (true);
 
-            var screen = get_screen ();
-            set_default_size (screen.get_width (), screen.get_height ());
+            var display = Gdk.Display.get_default ();
+            Gdk.Monitor monitor = display.get_primary_monitor ();
+            Gdk.Rectangle geom = monitor.get_geometry ();
+            set_default_size (geom.width, geom.height);
         }
 
         public override bool button_press_event (Gdk.EventButton e) {
