@@ -41,5 +41,8 @@
         <key name='last-capture-mode' enum='com.github.mohelm97.screenrecorder.capture-mode'>
             <default>"screen"</default>
         </key>
+        <key name="window-position" type="(ii)">
+            <default>(-1, -1)</default>
+        </key>
     </schema>
 </schemalist>

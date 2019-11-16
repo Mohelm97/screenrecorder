@@ -68,8 +68,19 @@ namespace ScreenRecorder {
                 window.present ();
                 return;
             }
+
+            int window_x, window_y;
+            settings.get ("window-position", "(ii)", out window_x, out window_y);
+
             window = new MainWindow (this);
             window.get_style_context ().add_class ("rounded");
+
+            if (window_x != -1 || window_y != -1) {
+                window.move (window_x, window_y);
+            } else {
+                window.window_position = Gtk.WindowPosition.CENTER;
+            }
+
             window.show_all ();
         }
 
