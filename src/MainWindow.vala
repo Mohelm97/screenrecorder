@@ -45,6 +45,7 @@ namespace ScreenRecorder {
         private string tmpfilepath;
         private int last_recording_width = 0;
         private int last_recording_height = 0;
+        private uint configure_id;
 
         public MainWindow (Gtk.Application app){
             Object (
@@ -357,6 +358,23 @@ namespace ScreenRecorder {
             recording = false;
             actions.remove (stop_btn);
             actions.add (record_btn);
+        }
+
+        protected override bool configure_event (Gdk.EventConfigure event) {
+            if (configure_id != 0) {
+                GLib.Source.remove (configure_id);
+            }
+    
+            configure_id = Timeout.add (100, () => {
+                configure_id = 0;
+                int x, y;
+                get_position (out x, out y);
+                ScreenRecorderApp.settings.set ("window-position", "(ii)", x, y);
+    
+                return false;
+            });
+    
+            return base.configure_event (event);
         }
     }
 }
