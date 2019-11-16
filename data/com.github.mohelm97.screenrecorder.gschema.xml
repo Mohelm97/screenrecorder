@@ -20,6 +20,9 @@
         <key name="mouse-pointer" type="b">
             <default>true</default>
         </key>
+        <key name="keys" type="b">
+            <default>true</default>
+        </key>
         <key name="show-borders" type="b">
             <default>true</default>
         </key>
