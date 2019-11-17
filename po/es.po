@@ -1,0 +1,189 @@
+# Spanish translations of the com.github.mohelm97.screenrecorder package.
+# Copyright (C) 2019 THE com.github.mohelm97.screenrecorder'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the com.github.mohelm97.screenrecorder package.
+# Cheshirecatt <noctis.crawler@gmail.com>, 2019.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: com.github.mohelm97.screenrecorder\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-03-23 19:13+0100\n"
+"PO-Revision-Date: 2019-10-16 22:39+0600\n"
+"Last-Translator: Cheshirecatt <noctis.crawler@gmail.com>\n"
+"Language-Team: none\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: src/Application.vala:27
+msgid "Screen Records"
+msgstr "Grabaciones de Pantalla"
+
+#: src/MainWindow.vala:61
+msgid "Grab the whole screen"
+msgstr "Capturar toda la pantalla"
+
+#: src/MainWindow.vala:65
+msgid "Select area to grab"
+msgstr "Seleccionar área para capturar"
+
+#: src/MainWindow.vala:75
+msgid "Grab mouse pointer:"
+msgstr "Capturar el puntero:"
+
+#: src/MainWindow.vala:81
+msgid "Record computer sounds:"
+msgstr "Grabar sonidos del PC:"
+
+#: src/MainWindow.vala:88
+msgid "Record from microphone:"
+msgstr "Grabar desde el micrófono:"
+
+#: src/MainWindow.vala:95
+msgid "Show borders:"
+msgstr "Mostrar bordes:"
+
+#: src/MainWindow.vala:101
+msgid "Delay in seconds:"
+msgstr "Retardo en segundos:"
+
+#: src/MainWindow.vala:106
+msgid "Frame rate:"
+msgstr "Cuadros por segundo:"
+
+#: src/MainWindow.vala:111
+msgid "Scale:"
+msgstr "Escala:"
+
+#: src/MainWindow.vala:116 src/SaveDialog.vala:88
+msgid "Format:"
+msgstr "Formato:"
+
+#: src/MainWindow.vala:121
+msgid "Record Screen"
+msgstr "Grabar Pantalla"
+
+#: src/MainWindow.vala:126
+msgid "Stop Recording"
+msgstr "Detener Grabación"
+
+#: src/MainWindow.vala:130
+msgid "Toggle recording"
+msgstr "Alternar grabación"
+
+#: src/MainWindow.vala:169
+msgid "Light background"
+msgstr "Fondo claro"
+
+#: src/MainWindow.vala:170
+msgid "Dark background"
+msgstr "Fondo oscuro"
+
+#: src/MainWindow.vala:174 data/com.github.mohelm97.screenrecorder.desktop.in:3
+#: data/com.github.mohelm97.screenrecorder.appdata.xml.in:7
+msgid "Screen Recorder"
+msgstr ""
+
+#: src/SaveDialog.vala:73
+msgid "Save record as…"
+msgstr "Guardar grabación como…"
+
+#: src/SaveDialog.vala:77
+msgid "Name:"
+msgstr "Nombre:"
+
+#: src/SaveDialog.vala:93
+msgid "Folder:"
+msgstr "Carpeta:"
+
+#: src/SaveDialog.vala:103
+msgid "Select Screen Records Folder…"
+msgstr "Seleccionar Carpeta de Grabaciones…"
+
+#: src/SaveDialog.vala:124
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: src/SaveDialog.vala:126
+msgid "Save Original"
+msgstr "Guardar Original"
+
+#: src/SaveDialog.vala:128
+msgid "Save"
+msgstr "Guardar"
+
+#: src/SaveDialog.vala:171
+msgid "Rendering went awesome"
+msgstr "El renderizado fue increíble"
+
+#: src/SaveDialog.vala:172
+msgid "Click here to open the records folder"
+msgstr "Haga clic aquí para abrir la carpeta de grabaciones"
+
+#: src/SaveDialog.vala:195
+#, c-format
+msgid "Screen record from %s"
+msgstr "Grabación del %s"
+
+#: src/Widgets/VideoPlayer.vala:100
+msgid "Toggle playing"
+msgstr "Reproducir / Pausa"
+
+#: data/com.github.mohelm97.screenrecorder.desktop.in:4
+msgid "Simple tool to record the screen using ffmpeg"
+msgstr "Herramienta simple para grabar la pantalla usando ffmpeg"
+
+#: data/com.github.mohelm97.screenrecorder.desktop.in:6
+msgid "com.github.mohelm97.screenrecorder"
+msgstr "com.github.mohelm97.screenrecorder"
+
+#: data/com.github.mohelm97.screenrecorder.desktop.in:10
+msgid "Snapshot;Screenshot;Screen;Record;Recording;"
+msgstr "Instantánea;Captura de pantalla;Pantalla;Grabar;Grabación;"
+
+#: data/com.github.mohelm97.screenrecorder.appdata.xml.in:8
+msgid "A simple screen recording app for daily use."
+msgstr "Una aplicación de grabación de pantalla simple para el uso diario."
+
+#: data/com.github.mohelm97.screenrecorder.appdata.xml.in:10
+msgid ""
+"A screen recording app using FFmpeg, with a small set of useful features!"
+msgstr "¡Una aplicación para grabar la pantalla que usa FFmpeg, con un pequeño conjunto de funciones útiles!"
+
+#: data/com.github.mohelm97.screenrecorder.appdata.xml.in:11
+msgid "Features include:"
+msgstr "Características incluidas:"
+
+#: data/com.github.mohelm97.screenrecorder.appdata.xml.in:13
+msgid "gif recording"
+msgstr "grabación de gifs"
+
+#: data/com.github.mohelm97.screenrecorder.appdata.xml.in:14
+msgid "Recording sound from speakers"
+msgstr "Grabar sonidos de los altavoces"
+
+#: data/com.github.mohelm97.screenrecorder.appdata.xml.in:15
+msgid "Recording sound from microphone"
+msgstr "Grabar sonidos del micrófono"
+
+#: data/com.github.mohelm97.screenrecorder.appdata.xml.in:16
+msgid "Available format: MP4, MOV and GIF"
+msgstr "Formatos disponibles: MP4, MOV y GIF"
+
+#: data/com.github.mohelm97.screenrecorder.appdata.xml.in:22
+msgid "Add scaling option"
+msgstr "Añadida la opción de escala"
+
+#: data/com.github.mohelm97.screenrecorder.appdata.xml.in:23
+msgid "Minor bug fixes"
+msgstr "Corrección de errores menores"
+
+#: data/com.github.mohelm97.screenrecorder.appdata.xml.in:24
+msgid "New translations"
+msgstr "Nuevas traducciones"
+
+#: data/com.github.mohelm97.screenrecorder.appdata.xml.in:69
+msgid "Mohammed ALMadhoun"
+msgstr "Mohammed ALMadhoun"
