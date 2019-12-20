@@ -38,7 +38,7 @@ msgstr "Nagraj dźwięki z komputera:"
 
 #: src/MainWindow.vala:88
 msgid "Record from microphone:"
-msgstr "Nagrywaj z mikrofonu:"
+msgstr "Nagraj z mikrofonu:"
 
 #: src/MainWindow.vala:95
 msgid "Show borders:"
