@@ -38,8 +38,10 @@ namespace Screenshot.Widgets {
             set_skip_pager_hint (true);
             set_keep_above (true);
 
-            var screen = get_screen ();
-            set_default_size (screen.get_width (), screen.get_height ());
+            var display = Gdk.Display.get_default ();
+            Gdk.Monitor monitor = display.get_primary_monitor ();
+            Gdk.Rectangle geom = monitor.get_geometry ();
+            set_default_size (geom.width, geom.height);
         }
 
         public override bool button_press_event (Gdk.EventButton e) {
@@ -99,33 +101,19 @@ namespace Screenshot.Widgets {
 
         public override void show_all () {
             base.show_all ();
-            var manager = Gdk.Display.get_default ().get_device_manager ();
-            var pointer = manager.get_client_pointer ();
-            var keyboard = pointer.get_associated_device ();
+
+            var manager = Gdk.Display.get_default ().get_default_seat ();
             var window = get_window ();
 
-            var status = pointer.grab (window,
-                        Gdk.GrabOwnership.NONE,
+            var status = manager.grab (window,
+                        Gdk.SeatCapabilities.ALL,
                         false,
-                        Gdk.EventMask.BUTTON_PRESS_MASK | Gdk.EventMask.BUTTON_RELEASE_MASK | Gdk.EventMask.POINTER_MOTION_MASK,
                         new Gdk.Cursor.for_display (window.get_display (), Gdk.CursorType.CROSSHAIR),
-                        Gtk.get_current_event_time ());
+                        new Gdk.Event (Gdk.EventType.BUTTON_PRESS | Gdk.EventType.BUTTON_RELEASE | Gdk.EventType.MOTION_NOTIFY),
+                        null);
 
             if (status != Gdk.GrabStatus.SUCCESS) {
-                pointer.ungrab (Gtk.get_current_event_time ());
-            }
-
-            if (keyboard != null) {
-                status = keyboard.grab (window,
-                        Gdk.GrabOwnership.NONE,
-                        false,
-                        Gdk.EventMask.KEY_PRESS_MASK,
-                        null,
-                        Gtk.get_current_event_time ());
-
-                if (status != Gdk.GrabStatus.SUCCESS) {
-                    keyboard.ungrab (Gtk.get_current_event_time ());
-                }                
+                manager.ungrab ();
             }
         }
 
