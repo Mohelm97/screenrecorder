@@ -1,6 +1,6 @@
 # Polish translations for Screen Recorder.
 # This file is distributed under the same license as the com.github.mohelm97.screenrecorder.
-# Translated by Michał Nowakowski <nowakowski@offshore.rocks>, 2019.
+# Michał Nowakowski <nowakowski@offshore.rocks>, 2019.
 #
 #, fuzzy
 msgid ""
