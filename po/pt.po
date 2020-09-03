@@ -24,7 +24,7 @@ msgstr "Gravador de Ecrã"
 
 #: src/MainWindow.vala:61
 msgid "Grab the whole screen"
-msgstr "Captura o ecrã todo"
+msgstr "Captura o ecrã inteiro"
 
 #: src/MainWindow.vala:65
 msgid "Select area to grab"
