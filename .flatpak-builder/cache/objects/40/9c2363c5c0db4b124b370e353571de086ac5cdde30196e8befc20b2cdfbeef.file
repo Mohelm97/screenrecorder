@@ -1,0 +1,32 @@
+[Application]
+name=com.github.mohelm97.screenrecorder
+runtime=io.elementary.Platform/x86_64/6.1
+sdk=io.elementary.Sdk/x86_64/6.1
+command=com.github.mohelm97.screenrecorder
+
+[Context]
+shared=ipc;
+sockets=x11;wayland;pulseaudio;fallback-x11;
+filesystems=home;
+
+[Session Bus Policy]
+org.gnome.Shell.Screencast=talk
+
+[System Bus Policy]
+org.freedesktop.Accounts=talk
+
+[X-DConf]
+migrate-path=/com/github/mohelm97/screenrecorder/
+
+[Extension com.github.mohelm97.screenrecorder.Locale]
+directory=share/runtime/locale
+autodelete=true
+locale-subset=true
+
+[Extension com.github.mohelm97.screenrecorder.Debug]
+directory=lib/debug
+autodelete=true
+no-autodownload=true
+
+[Build]
+built-extensions=com.github.mohelm97.screenrecorder.Locale;com.github.mohelm97.screenrecorder.Debug;

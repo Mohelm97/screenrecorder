@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2018 Mohammed ALMadhoun <mohelm97@gmail.com> -->
+<component type="desktop">
+  <id>com.github.mohelm97.screenrecorder</id>
+  <metadata_license>CC0</metadata_license>
+  <project_license>GPL-3.0</project_license>
+  <name>Screen Recorder</name>
+  <name xml:lang="nl">Schermopname</name>
+  <name xml:lang="da">Skærmoptager</name>
+  <name xml:lang="ru">Screen Recorder</name>
+  <name xml:lang="lt">Ekrano rašytuvas</name>
+  <name xml:lang="ja">スクリーンレコーダー</name>
+  <name xml:lang="fr">Enregistreur d'écran</name>
+  <name xml:lang="ar">مسجل الشاشة</name>
+  <summary>A simple screen recording app for daily use.</summary>
+  <summary xml:lang="nl">Een eenvoudige schermopnametoepassing voor dagelijks gebruik.</summary>
+  <summary xml:lang="da">En simpel skærmoptagelses app til dagligt brug.</summary>
+  <summary xml:lang="lt">Paprasta ekrano rašytuvo programa kasdieniam naudojimui.</summary>
+  <summary xml:lang="ja">日常使用に耐えうる、シンプルな画面録画アプリです。</summary>
+  <summary xml:lang="fr">Une simple application d'enregistrement d'écran pour l'usage quotidien.</summary>
+  <summary xml:lang="ar">برنامج بسيط لتسجيل الشاشة للإستخدام اليومي.</summary>
+  <description>
+    <p>A screen recording app using FFmpeg, with a small set of useful features! </p>
+    <p xml:lang="nl">Eenvoudige toepassing voor schermopnames middels ffmpeg met een aantal handige functies!</p>
+    <p xml:lang="da">En skærmoptagelses applikation som bruger FFmpeg, med tilføjede ekstra funktionaliteter!</p>
+    <p xml:lang="lt">Ekrano rašytuvo programa, naudojanti FFmpeg, su nedideliu naudingų ypatybių rinkiniu!</p>
+    <p xml:lang="ja">FFmpeg を使用する画面録画アプリです。便利な機能もそろっています！</p>
+    <p xml:lang="fr">Une application d'enregistrement d'écran qui utilise FFmpeg, avec un petit paquet de fonctionnalités utiles !</p>
+    <p xml:lang="ar">برنامج لتسجيل الشاشة بإستخدام FFmpeg، مع عدد صغير من الميزات!</p>
+    <p>Features include:</p>
+    <p xml:lang="nl">Het bevat de volgende mogelijkheden:</p>
+    <p xml:lang="da">Funktionaliteter inkluderer :</p>
+    <p xml:lang="lt">Ypatybės:</p>
+    <p xml:lang="ja">含まれる機能:</p>
+    <p xml:lang="fr">Fonctionnalités inclues :</p>
+    <p xml:lang="ar">ميزات مثل:</p>
+    <ul>
+      <li>gif recording</li>
+      <li xml:lang="nl">gif-opname</li>
+      <li xml:lang="da">GIF optagelse</li>
+      <li xml:lang="lt">Gif įrašinėjimas</li>
+      <li xml:lang="ja">GIF 録画</li>
+      <li xml:lang="fr">Enregistrement de GIF</li>
+      <li xml:lang="ar">تسجيل صور جيف</li>
+      <li>Recording sound from speakers</li>
+      <li xml:lang="nl">Geluid opnemen van luidsprekers</li>
+      <li xml:lang="da">Optagelse af lyd fra skærmen</li>
+      <li xml:lang="lt">Garso iš kolonėlių įrašinėjimas</li>
+      <li xml:lang="ja">スピーカーの音を録音</li>
+      <li xml:lang="fr">Enregistrement du son des haut-parleurs</li>
+      <li xml:lang="ar">تسجيل من صوت الكمبيوتر</li>
+      <li>Recording sound from microphone</li>
+      <li xml:lang="nl">Geluid opnemen van microfoon</li>
+      <li xml:lang="da">Optagelse af lyd fra mikrofonen</li>
+      <li xml:lang="lt">Garso iš mikrofono įrašinėjimas</li>
+      <li xml:lang="ja">マイクの音を録音</li>
+      <li xml:lang="fr">Enregistrement du son depuis le microphone</li>
+      <li xml:lang="ar">تسجيل من صوت الميكروفون</li>
+      <li>Available format: MP4, MOV and GIF</li>
+      <li xml:lang="nl">Beschikbare formaten: MP4, MOV en GIF</li>
+      <li xml:lang="da">Tilgængelige formater: MP4, MOV et GIF</li>
+      <li xml:lang="lt">Prieinami formatai: MP4, MOV ir GIF</li>
+      <li xml:lang="ja">利用可能な形式: MP4・MOV・GIF</li>
+      <li xml:lang="fr">Formats disponibles : MP4, MOV et GIF</li>
+      <li xml:lang="ar">الصيغ المتاحة: MP4, MOV and GIF</li>
+    </ul>
+  </description>
+  <releases>
+    <release version="0.2" date="2019-03-13" urgency="medium">
+      <description>
+        <p>Add scaling option</p>
+        <p xml:lang="nl">Schaaloptie toegevoegd</p>
+        <p xml:lang="da">Tilføj skalerings indstilling</p>
+        <p xml:lang="fr">Ajout des options d'échelle</p>
+        <p xml:lang="ar">إضافة خاصية التحجيم</p>
+        <p>Minor bug fixes</p>
+        <p xml:lang="nl">Kleine fouten opgelost</p>
+        <p xml:lang="da">Mindre små ændringer</p>
+        <p xml:lang="fr">Corrections de bugs mineures</p>
+        <p xml:lang="ar">اصلاح اخطأ فرعية</p>
+        <p>New translations</p>
+        <p xml:lang="nl">Nieuwe vertalingen</p>
+        <p xml:lang="da">Nye oversættelser</p>
+        <p xml:lang="fr">Nouvelles traductions</p>
+        <p xml:lang="ar">إضافة ترجمات جديدة</p>
+      </description>
+    </release>
+    <release version="0.1" date="2018-12-17"/>
+  </releases>
+  <screenshots>
+    <screenshot type="default">
+      <image>https://raw.githubusercontent.com/mohelm97/screenrecorder/master/data/screenshot_1.png</image>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/mohelm97/screenrecorder/master/data/screenshot_2.png</image>
+    </screenshot>
+  </screenshots>
+  <content_rating type="oars-1.1">
+    <content_attribute id="violence-cartoon">none</content_attribute>
+    <content_attribute id="violence-fantasy">none</content_attribute>
+    <content_attribute id="violence-realistic">none</content_attribute>
+    <content_attribute id="violence-bloodshed">none</content_attribute>
+    <content_attribute id="violence-sexual">none</content_attribute>
+    <content_attribute id="violence-desecration">none</content_attribute>
+    <content_attribute id="violence-slavery">none</content_attribute>
+    <content_attribute id="violence-worship">none</content_attribute>
+    <content_attribute id="drugs-alcohol">none</content_attribute>
+    <content_attribute id="drugs-narcotics">none</content_attribute>
+    <content_attribute id="drugs-tobacco">none</content_attribute>
+    <content_attribute id="sex-nudity">none</content_attribute>
+    <content_attribute id="sex-themes">none</content_attribute>
+    <content_attribute id="sex-homosexuality">none</content_attribute>
+    <content_attribute id="sex-prostitution">none</content_attribute>
+    <content_attribute id="sex-adultery">none</content_attribute>
+    <content_attribute id="sex-appearance">none</content_attribute>
+    <content_attribute id="language-profanity">none</content_attribute>
+    <content_attribute id="language-humor">none</content_attribute>
+    <content_attribute id="language-discrimination">none</content_attribute>
+    <content_attribute id="social-chat">none</content_attribute>
+    <content_attribute id="social-info">mild</content_attribute>
+    <content_attribute id="social-audio">none</content_attribute>
+    <content_attribute id="social-location">none</content_attribute>
+    <content_attribute id="social-contacts">none</content_attribute>
+    <content_attribute id="money-purchasing">none</content_attribute>
+    <content_attribute id="money-gambling">none</content_attribute>
+  </content_rating>
+  <developer_name>Mohammed ALMadhoun</developer_name>
+  <developer_name xml:lang="nl">Mohammed ALMadhoun</developer_name>
+  <developer_name xml:lang="da">Mohammed ALMadhoun</developer_name>
+  <developer_name xml:lang="lt">Mohammed ALMadhoun</developer_name>
+  <developer_name xml:lang="ja">Mohammed ALMadhoun</developer_name>
+  <developer_name xml:lang="fr">Mohammed ALMadhoun</developer_name>
+  <url type="homepage">https://github.com/mohelm97/screenrecorder</url>
+  <url type="bugtracker">https://github.com/mohelm97/screenrecorder/issues</url>
+  <url type="help">https://github.com/mohelm97/screenrecorder/issues</url>
+  <custom>
+    <value key="x-appcenter-color-primary">#c6262e</value>
+    <value key="x-appcenter-color-primary-text">rgb(255, 255, 255)</value>
+  </custom>
+</component>

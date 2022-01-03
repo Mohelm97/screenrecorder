@@ -1,0 +1,5 @@
+[Runtime]
+name=com.github.mohelm97.screenrecorder.Debug
+
+[ExtensionOf]
+ref=app/com.github.mohelm97.screenrecorder/x86_64/master
