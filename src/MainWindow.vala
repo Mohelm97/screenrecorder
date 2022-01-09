@@ -166,16 +166,10 @@ namespace ScreenRecorder {
             grid.attach (format_label      , 0, 8, 1, 1);
             grid.attach (format_cmb        , 1, 8, 1, 1);
 
-            var mode_switch = new Granite.ModeSwitch.from_icon_name ("display-brightness-symbolic", "weather-clear-night-symbolic");
-            mode_switch.primary_icon_tooltip_text = _("Light background");
-            mode_switch.secondary_icon_tooltip_text = _("Dark background");
-            mode_switch.valign = Gtk.Align.CENTER;
-
             var titlebar = new Gtk.HeaderBar ();
             titlebar.title = _("Screen Recorder");
             titlebar.show_close_button = true;
             titlebar.has_subtitle = false;
-            titlebar.pack_end (mode_switch);
 
             var titlebar_style_context = titlebar.get_style_context ();
             titlebar_style_context.add_class (Gtk.STYLE_CLASS_FLAT);
@@ -189,10 +183,14 @@ namespace ScreenRecorder {
 
             add (vbox);
 
+            var granite_settings = Granite.Settings.get_default ();
             var gtk_settings = Gtk.Settings.get_default ();
-            mode_switch.bind_property ("active", gtk_settings, "gtk_application_prefer_dark_theme");
-
-            settings.bind ("dark-theme", mode_switch, "active", GLib.SettingsBindFlags.DEFAULT);
+            gtk_settings.gtk_application_prefer_dark_theme = granite_settings.prefers_color_scheme == Granite.Settings.ColorScheme.DARK;
+    
+            granite_settings.notify["prefers-color-scheme"].connect (() => {
+               		 gtk_settings.gtk_application_prefer_dark_theme = granite_settings.prefers_color_scheme == Granite.Settings.ColorScheme.DARK;
+            });
+            
             settings.bind ("record-computer", record_cmp_switch, "active", GLib.SettingsBindFlags.DEFAULT);
             settings.bind ("record-microphone", record_mic_switch, "active", GLib.SettingsBindFlags.DEFAULT);
             settings.bind ("mouse-pointer", pointer_switch, "active", GLib.SettingsBindFlags.DEFAULT);
