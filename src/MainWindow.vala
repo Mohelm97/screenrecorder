@@ -34,8 +34,10 @@ namespace ScreenRecorder {
         private Gtk.Switch record_cmp_switch;
         private Gtk.Switch record_mic_switch;
         private Gtk.Switch pointer_switch;
+        private Gtk.Switch keys_switch;
         private Gtk.Switch borders_switch;
         private Gtk.ComboBoxText format_cmb;
+        private Subprocess screenkey_process;
 
         private bool recording = false;
         private bool save_dialog_present = false;
@@ -78,6 +80,12 @@ namespace ScreenRecorder {
 
             pointer_switch = new Gtk.Switch ();
             pointer_switch.halign = Gtk.Align.START;
+
+            var keys_label = new Gtk.Label (_("Grab keyboard:"));
+            keys_label.halign = Gtk.Align.END;
+
+            keys_switch = new Gtk.Switch ();
+            keys_switch.halign = Gtk.Align.START;
 
             var record_cmp_label = new Gtk.Label (_("Record computer sounds:"));
             record_cmp_label.halign = Gtk.Align.END;
@@ -155,16 +163,18 @@ namespace ScreenRecorder {
             grid.attach (record_mic_switch , 1, 2, 1, 1);
             grid.attach (pointer_label     , 0, 3, 1, 1);
             grid.attach (pointer_switch    , 1, 3, 1, 1);
-            grid.attach (borders_label     , 0, 4, 1, 1);
-            grid.attach (borders_switch    , 1, 4, 1, 1);
-            grid.attach (delay_label       , 0, 5, 1, 1);
-            grid.attach (delay_spin        , 1, 5, 1, 1);
-            grid.attach (framerate_label   , 0, 6, 1, 1);
-            grid.attach (framerate_spin    , 1, 6, 1, 1);
-            grid.attach (scale_label       , 0, 7, 1, 1);
-            grid.attach (scale_combobox    , 1, 7, 1, 1);
-            grid.attach (format_label      , 0, 8, 1, 1);
-            grid.attach (format_cmb        , 1, 8, 1, 1);
+            grid.attach (keys_label        , 0, 4, 1, 1);
+            grid.attach (keys_switch       , 1, 4, 1, 1);
+            grid.attach (borders_label     , 0, 5, 1, 1);
+            grid.attach (borders_switch    , 1, 5, 1, 1);
+            grid.attach (delay_label       , 0, 6, 1, 1);
+            grid.attach (delay_spin        , 1, 6, 1, 1);
+            grid.attach (framerate_label   , 0, 7, 1, 1);
+            grid.attach (framerate_spin    , 1, 7, 1, 1);
+            grid.attach (scale_label       , 0, 8, 1, 1);
+            grid.attach (scale_combobox    , 1, 8, 1, 1);
+            grid.attach (format_label      , 0, 9, 1, 1);
+            grid.attach (format_cmb        , 1, 9, 1, 1);
 
             var titlebar = new Gtk.HeaderBar ();
             titlebar.title = _("Screen Recorder");
@@ -193,6 +203,7 @@ namespace ScreenRecorder {
             
             settings.bind ("record-computer", record_cmp_switch, "active", GLib.SettingsBindFlags.DEFAULT);
             settings.bind ("record-microphone", record_mic_switch, "active", GLib.SettingsBindFlags.DEFAULT);
+            settings.bind ("keys", keys_switch, "active", GLib.SettingsBindFlags.DEFAULT);
             settings.bind ("mouse-pointer", pointer_switch, "active", GLib.SettingsBindFlags.DEFAULT);
             settings.bind ("show-borders", borders_switch, "active", GLib.SettingsBindFlags.DEFAULT);
             settings.bind ("delay", delay_spin, "value", GLib.SettingsBindFlags.DEFAULT);
@@ -337,10 +348,31 @@ namespace ScreenRecorder {
             actions.remove (record_btn);
             actions.add (stop_btn);
             stop_btn.show ();
+            if (keys_switch.state) {
+                screenkeys (selection_rect);
+            }
+        }
+
+        void screenkeys (Gdk.Rectangle area) {
+            try {
+                string[] command = {
+                    "screenkey",
+                    "--no-detach",
+                    "-g",
+                    "%ix%i+%i+%i".printf(area.width, area.height, area.x, area.y)
+                };
+                screenkey_process = new Subprocess.newv (command, SubprocessFlags.NONE);
+            } catch (Error e) {
+                debug ("Issue running screenkey: '%s'", e.message);
+            }
         }
 
         void stop_recording () {
             ffmpegwrapper.stop();
+            if (screenkey_process != null) {
+                screenkey_process.force_exit ();
+            }
+
             present ();
             var save_dialog = new SaveDialog (tmpfilepath, this, last_recording_width, last_recording_height);
             save_dialog_present = true;
